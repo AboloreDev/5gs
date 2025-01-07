@@ -7,7 +7,7 @@ const UsersLinks = () => {
         <button>Sign In</button>
       </Link>
       <Link href="/auth/SignUp">
-        <button className="bg-orange-600 px-6 py-4 rounded-lg hover:bg-orange-400">
+        <button className="bg-orange-600 px-4 py-2 rounded-lg hover:bg-orange-400">
           Sign Up
         </button>
       </Link>

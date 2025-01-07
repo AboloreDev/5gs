@@ -3,24 +3,24 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="py-16 sm:py-32 max-w-screen-xl mx-auto px-4">
-      <h1 className=" relative text-4xl sm:text-6xl lg:text-8xl font-bold bg-gradient-to-r from-[#AE67FA] to-[#F49867] bg-clip-text text-transparent">
+    <section className="mt-20 max-w-screen-xl mx-auto px-2">
+      <h1 className=" relative text-[100px] font-bold bg-gradient-to-r  from-[#AE67FA] to-[#F49867] bg-clip-text text-transparent">
         Capture Every Moment With Us
       </h1>
-      <div className="translate-x-[65%] -translate-y-64  absolute w-full sm:w-[600px] sm:h-[600px] lg:w-[900px] lg:h-[800px] mt-8 sm:mt-0">
+      <div className="-translate-x-44 right-96 -translate-y-80 absolute w-[800px] h-[700px]">
         <Image
           src="/camera.png"
           alt="Hero Image"
-          width={1200}
-          height={1200}
+          width={916}
+          height={700}
           layout="responsive"
         />
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-center sm:max-w-[1450px] mx-auto mt-8 sm:mt-16">
+      <div className="flex flex-col sm:flex-row justify-between items-center sm:max-w-[1450px] mx-auto mt-4">
         <HeroTitle />
       </div>
-    </div>
+    </section>
   );
 };
 
