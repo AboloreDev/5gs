@@ -13,7 +13,7 @@ const Gallery = () => {
       </div>
 
       {/* Gallery Container*/}
-      <div className="flex max-w-[1800px] mx-auto justify-between items-center space-x-8 mb-20 px-4">
+      <div className="flex max-w-[1800px] mx-auto justify-between items-center space-x-8 mb-20 px-8">
         <h1 className="md:text-2xl text-lg font-thin tracking-widest">
           A clear variety of target collaborations on what we <br /> provide our
           clients

@@ -3,8 +3,8 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 export default function Footer() {
   return (
-    <footer className="bg-[#001F3F] text-white py-20 min-h-screen">
-      <div className="max-w-5xl mx-auto px-4 py-4 text-center">
+    <footer className="bg-[#001F3F] text-white py-20">
+      <div className="max-w-[1200px] mx-auto px-4 py-12 text-center">
         {/* Newsletter Subscription Section */}
 
         {/* Logo Section */}

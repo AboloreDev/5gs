@@ -11,7 +11,7 @@ import Link from "next/link";
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <nav className="max-w-[1500px] mx-auto px-8 py-8">
+    <nav className="max-w-[1400px] mx-auto px-8 py-8">
       {/* components */}
       <div className="md:flex justify-between items-center hidden">
         <Logo />

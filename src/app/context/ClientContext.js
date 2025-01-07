@@ -2,6 +2,7 @@
 
 import { createContext, useState, useEffect } from "react";
 import { product } from "../product";
+import { redirect } from "next/dist/server/api-utils";
 
 // Create context
 export const ClientContext = createContext();
@@ -9,7 +10,13 @@ export const ClientContext = createContext();
 // Provider component
 export const ClientProvider = (props) => {
   // States
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedList = localStorage.getItem("list");
+      return savedList ? JSON.parse(savedList) : [];
+    }
+    return [];
+  });
   const [message, setMessage] = useState("");
   const [cart, setCart] = useState([]);
   const [query, setQuery] = useState("");
@@ -280,67 +287,80 @@ export const ClientProvider = (props) => {
   };
 
   // Homepage context
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Book us for your makeup session",
-      category: "Photography",
-      type: "Picture",
-      image: "/lipstick.png",
-      date: "2025-01-01",
-      likes: 138,
-      comments: 14,
-    },
-    {
-      id: 2,
-      title: "Outdoor photography package",
-      category: "Make-up",
-      type: "Picture",
-      image: "/frame.png",
-      date: "2025-01-02",
-      likes: 98,
-      comments: 20,
-    },
-    {
-      id: 3,
-      title: "Book us for your makeup session",
-      category: "Graphic design",
-      type: "Picture",
-      image: "/camera.png",
-      date: "2025-01-01",
-      likes: 138,
-      comments: 14,
-    },
-    {
-      id: 1,
-      title: "Book us for your makeup session",
-      category: "Videography",
-      type: "Video",
-      image: "/ceo.png",
-      date: "2025-01-01",
-      likes: 138,
-      comments: 14,
-    },
-  ]);
+  const [posts, setPosts] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedPosts = localStorage.getItem("posts");
+      return savedPosts
+        ? JSON.parse(savedPosts)
+        : [
+            {
+              id: 1,
+              title: "Book us for your makeup session",
+              category: "Photography",
+              type: "Picture",
+              image: "/HomeImage.png",
+              date: "2025-01-01",
+              likes: 0,
+              comments: 0,
+              liked: false,
+            },
+            {
+              id: 2,
+              title: "Outdoor photography package",
+              category: "Make-up",
+              type: "Picture",
+              image: "/HomeImage.png",
+              date: "2025-01-02",
+              likes: 0,
+              comments: 0,
+              liked: false,
+            },
+            {
+              id: 3,
+              title: "Book us for your makeup session",
+              category: "Graphic design",
+              type: "Picture",
+              image: "/HomeImage.png",
+              date: "2025-01-01",
+              likes: 0,
+              comments: 0,
+              liked: false,
+            },
+            {
+              id: 4,
+              title: "Book us for your makeup session",
+              category: "Videography",
+              type: "Video",
+              image: "/HomeImage.png",
+              date: "2025-01-01",
 
+              liked: false,
+            },
+          ];
+    }
+    return [];
+  });
+
+  // Filters state with LocalStorage persistence
   const [filters, setFilters] = useState(() => {
     if (typeof window !== "undefined") {
-      // Client-side only
       const savedFilters = localStorage.getItem("postFilters");
       return savedFilters
         ? JSON.parse(savedFilters)
         : { category: "All", type: "All" };
     }
-    return { category: "All", type: "All" }; // Default for SSR
+    return { category: "All", type: "All" };
   });
 
+  // Save posts and filters to LocalStorage on change
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Client-side only
+      localStorage.setItem("posts", JSON.stringify(posts));
       localStorage.setItem("postFilters", JSON.stringify(filters));
     }
-  }, [filters]);
+  }, [posts, filters]);
 
+  // Filter posts based on filters state
   const filterPosts = () => {
     let filteredPosts = posts;
 
@@ -350,7 +370,7 @@ export const ClientProvider = (props) => {
       );
     }
 
-    if (filters.type.length > 0) {
+    if (filters.type.length > 0 && filters.type !== "All") {
       filteredPosts = filteredPosts.filter((post) =>
         filters.type.includes(post.type)
       );
@@ -359,78 +379,96 @@ export const ClientProvider = (props) => {
     return filteredPosts;
   };
 
+  // Handle like/unlike functionality
+  const toggleLike = (postId) => {
+    setPosts((prevPosts) => {
+      return prevPosts.map((post) => {
+        if (post.id === postId) {
+          const updatedLikes = post.liked ? post.likes - 1 : post.likes + 1;
+          return { ...post, likes: updatedLikes, liked: !post.liked };
+        }
+        return post;
+      });
+    });
+  };
+
+  const refreshPosts = () => {
+    if (typeof window !== "undefined") {
+      const savedPosts = localStorage.getItem("posts");
+      setPosts(savedPosts ? JSON.parse(savedPosts) : []);
+    }
+  };
+
   // feedback context
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState("");
-  const [toastMessage, setToastMessage] = useState(null);
+  const [feedbackId, setFeedbackId] = useState(null);
 
-  const submitFeedback = () => {
-    if (rating > 0 && feedback.trim() !== "") {
-      setToastMessage("Feedback submitted successfully!");
-      setTimeout(() => setToastMessage(null), 3000); // Hide the toast after 3 seconds
-      setRating(0);
-      setFeedback("");
-    }
+  // Submit feedback
+  const submitFeedback = (event) => {
+    event.preventDefault();
+    setFeedbackId(Date.now());
+    setFeedback("Thank you for your feedback!");
+    setTimeout(() => setFeedback(""), 2000);
   };
 
   // Context value
   const value = {
-    product,
-    handleAddToList,
     list,
     setList,
-    handleAddToCart,
-    handleUpdateCart,
+    handleAddToList,
     handleRemoveFromList,
+    handleAddToCart,
     handleRemoveFromCart,
+    handleUpdateCart,
     message,
     setMessage,
     cart,
     setCart,
-    deliveryFee,
-    subTotal,
-    total,
     query,
     setQuery,
     filteredProducts,
     messages,
     setMessages,
+    sendMessage,
     newMessage,
     setNewMessage,
-    sendMessage,
-    uploadFile,
     previewFiles,
     setPreviewFiles,
-    deleteMessage,
-    copyMessage,
-    caption,
-    setCaption,
+    uploadFile,
     updateCaption,
     removeFile,
+    deleteMessage,
+    copyMessage,
     addAppointment,
-    setAppointments,
+    cancelAppointment,
     updateAppointment,
     submitAppointment,
-    appointments,
-    cancelAppointment,
     editAppointment,
     posts,
     setPosts,
-    filterPosts,
     filters,
     setFilters,
+    filterPosts,
+    toggleLike,
+    currentDate,
+    setCurrentDate,
+    appointments,
+    setAppointments,
     notifications,
     setNotifications,
     markAsRead,
+    displayDetails,
     selectedNotification,
     setSelectedNotification,
-    displayDetails,
     closeModal,
     rating,
     setRating,
     feedback,
-    setFeedback,
     submitFeedback,
+    feedbackId,
+    setFeedbackId,
+    refreshPosts,
   };
 
   return (

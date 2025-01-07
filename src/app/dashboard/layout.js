@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 export default function DashboardLayout({ children }) {
   return (
     <div className="bg-gray-800">
-      <div className="min-h-screen grid lg:grid-cols-[400px_auto] px-6 gap-6 bg-black ">
+      <div className="h-[1500px] fixed w-full grid lg:grid-cols-[300px_auto] px-6 gap-6 bg-black ">
         <div className=" border-r-2 hidden lg:block">
           <Sidebar />
         </div>

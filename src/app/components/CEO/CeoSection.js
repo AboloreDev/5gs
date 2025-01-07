@@ -20,7 +20,7 @@ export default function CEOSection() {
           {/* Image */}
           <div className="absolute z-20 translate-x-10 -translate-y-20">
             <Image
-              src="/ceo.png" // Replace with the correct image URL
+              src="/ceo.png"
               alt="Mr. Seth Duodu"
               width={700}
               height={200}
@@ -79,12 +79,7 @@ export default function CEOSection() {
 
         {/* modile screen */}
         <div className="flex flex-col justify-center items-center md:hidden gap-6">
-          <Image
-            src="/ceo.png" // Replace with the correct image URL
-            alt="Mr. Seth Duodu"
-            width={400}
-            height={100}
-          />
+          <Image src="/ceo.png" alt="Mr. Seth Duodu" width={400} height={100} />
 
           <div className="max-w-[500px] bg-gray-800 px-4 py-6">
             <h3 className=" font-semibold mb-2 text-[25px] tracking-wider">

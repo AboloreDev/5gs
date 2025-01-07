@@ -2,7 +2,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }) {
   const pages = [...Array(totalPages).keys()].map((i) => i + 1);
 
   return (
-    <div className="flex justify-center items-center space-x-2 mt-4">
+    <div className="flex px-4 justify-center items-center space-x-2 mt-4 w-full text-center">
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
