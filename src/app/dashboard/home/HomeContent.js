@@ -36,7 +36,7 @@ const HomeContent = ({ post }) => {
 
   return (
     isPostVisible && (
-      <div className="flex flex-col gap-2 px-20 py-8 h-screen">
+      <div className="flex flex-col gap-2 px-10 py-8 h-screen">
         <h1 className="font-bold text-xl flex items-center gap-2">
           5GS Admin{" "}
           <span>

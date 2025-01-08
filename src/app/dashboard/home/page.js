@@ -18,9 +18,9 @@ export default function HomePage() {
         <p className="text-gray-500">Explore our products</p>
       </div>
 
-      <div className="grid grid-cols-[4fr_1fr] p-2">
+      <div className="grid grid-cols-[auto_300px] p-2 min-h-screen">
         {/* posts */}
-        <div className="px-4 overflow-y-auto h-screen">
+        <div className=" overflow-y-auto h-screen">
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}

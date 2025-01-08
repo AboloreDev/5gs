@@ -23,7 +23,7 @@ const Feedback = () => {
             <button
               key={star}
               onClick={() => setRating(star)}
-              className={`text-7xl ${
+              className={`text-4xl ${
                 star <= rating ? "text-yellow-400" : "text-gray-600"
               }`}
             >

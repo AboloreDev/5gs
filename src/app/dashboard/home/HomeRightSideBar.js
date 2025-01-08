@@ -24,12 +24,12 @@ const HomeRightSideBar = () => {
   return (
     <div className="flex px-3 flex-col gap-2 justify-center space-y-6 py-2">
       {/* filter */}
-      <div className="bg-[#0D0D0D] text-[#8B8B8B] py-4 px-4 w-full  rounded-md">
+      <div className="bg-[#0D0D0D] text-[#8B8B8B] py-2 px-2 w-full  rounded-md">
         Filter feed by...
       </div>
 
       {/* radio buttons  */}
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 text-sm">
         <h3 className="font-medium">Type:</h3>
         <label className="flex items-center gap-2">
           <input
@@ -58,12 +58,12 @@ const HomeRightSideBar = () => {
       </div>
 
       {/* category */}
-      <div className="flex flex-col gap-2 mb-8">
+      <div className="flex flex-col gap-2 mb-8 text-sm">
         <h2 className="text-xl font-bold">Category:</h2>
         <div className="flex flex-col gap-4">
           <button
             onClick={() => handleCategoryChange("All")}
-            className={`btn w-1/2 px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={` px-4 py-2 rounded-full bg-transparent border-2  ${
               filters.category === "All" ? "border-primary-secondaryColor" : ""
             }`}
           >
@@ -71,7 +71,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Photography")}
-            className={`btn  w-1/2 px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={`btn px-4 py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Photography"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -81,7 +81,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Make-up")}
-            className={`btn  w-1/2 px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={`btn  px-4 py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Make-up"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -91,7 +91,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Graphic design")}
-            className={`btn  w-1/2 px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={` px-4 py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Graphic design"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -101,7 +101,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Videography")}
-            className={`btn w-1/2 px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={` px-4 py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Videography"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"

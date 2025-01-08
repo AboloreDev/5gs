@@ -41,26 +41,26 @@ export default function Sidebar() {
       <Image
         src="/logo.png"
         alt="Logo"
-        width={200}
-        height={200}
+        width={100}
+        height={100}
         className="mb-10"
       />
       <ul className="space-y-6 justify-center items-center">
         {links.map((link) => (
           <li
             key={link.href}
-            className="tracking-widest text-xl flex justify-center items-center"
+            className="tracking-widest text-sm flex justify-center items-center"
           >
             <Link
               href={link.href}
               onClick={() => handleLinkClick(link.href)}
-              className={`flex items-center space-x-3 justify-start  py-3 px-3 rounded-full w-full ${
+              className={`flex items-center  space-x-3 justify-start  py-3 px-3 rounded-full w-full ${
                 activeLink === link.href
                   ? "bg-[#FF3D00] text-white"
                   : "hover:bg-gray-700"
               }`}
             >
-              <span className="text-lg">{link.icon}</span>
+              <span className="text-sm">{link.icon}</span>
               <span>{link.label}</span>
             </Link>
           </li>
