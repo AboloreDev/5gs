@@ -469,6 +469,9 @@ export const ClientProvider = (props) => {
     feedbackId,
     setFeedbackId,
     refreshPosts,
+    total,
+    subTotal,
+    deliveryFee,
   };
 
   return (

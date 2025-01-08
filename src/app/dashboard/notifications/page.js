@@ -28,12 +28,14 @@ const Notification = () => {
 
   return (
     <div>
-      <div className="border-b-2 py-2 ">
-        <h1 className="text-xl font-bold"> Appointment</h1>
-        <p className="text-gray-500">Read your received notifications</p>
+      <div className="border-b-2 py-2 px-2">
+        <h1 className="text-lg font-bold"> Appointment</h1>
+        <p className="text-gray-500 text-sm">
+          Read your received notifications
+        </p>
       </div>
 
-      <div className="grid grid-cols-[700px_auto] p-4">
+      <div className="grid grid-cols-[1fr_3fr] p-4">
         <div className="flex flex-col">
           <div className="flex gap-4 p-3 text-gray-500">
             <button

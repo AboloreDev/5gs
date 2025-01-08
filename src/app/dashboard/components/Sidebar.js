@@ -45,16 +45,16 @@ export default function Sidebar() {
         height={200}
         className="mb-10"
       />
-      <ul className="space-y-6 w-[90%] justify-center items-center">
+      <ul className="space-y-6 justify-center items-center">
         {links.map((link) => (
           <li
             key={link.href}
-            className="tracking-widest text-2xl flex justify-center items-center"
+            className="tracking-widest text-xl flex justify-center items-center"
           >
             <Link
               href={link.href}
               onClick={() => handleLinkClick(link.href)}
-              className={`flex items-center space-x-3 justify-start t py-4 px-4 rounded-full w-full ${
+              className={`flex items-center space-x-3 justify-start  py-3 px-3 rounded-full w-full ${
                 activeLink === link.href
                   ? "bg-[#FF3D00] text-white"
                   : "hover:bg-gray-700"

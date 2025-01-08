@@ -33,8 +33,8 @@ const Message = ({ message }) => {
     <div
       className={`flex flex-col mb-6 p-4 rounded-lg shadow-md w-1/2 h-auto ${
         sender === "client"
-          ? "translate-x-[100%] bg-gray-200 text-xl "
-          : "self-start bg-gray-300 text-xl"
+          ? "translate-x-[100%] bg-gray-200 text-sm "
+          : "self-start bg-gray-300 text-sm"
       }`}
     >
       {text && <p className="text-black px-4 py-2 rounded-lg">{text}</p>}

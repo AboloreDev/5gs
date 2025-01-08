@@ -50,10 +50,10 @@ const SignUpPage = () => {
   });
 
   return (
-    <div className="min-w-full bg-bgImage bg-no-repeat min-h-screen w-screen bg-cover bg-center">
+    <div className=" bg-bgImage bg-no-repeat bg-cover bg-center">
       <div className="flex justify-center items-center h-screen">
-        <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-10 py-2 space-y-2 w-[400px] md:w-[600px] h-[800px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
-          <h2 className="text-3xl font-semibold text-center mb-4">Register</h2>
+        <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-10 py-2 space-y-2 w-[500px] h-[800px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
+          <h2 className="text-xl font-semibold text-center mb-4">Register</h2>
 
           <form
             onSubmit={formik.handleSubmit}
@@ -200,7 +200,7 @@ const SignUpPage = () => {
             {/* Register Button */}
             <button
               type="submit"
-              className="bg-orange-600 text-xl text-white font-thin py-2 rounded-lg hover:scale-105 transition-transform w-full tracking-wide"
+              className="bg-orange-600 text-sm text-white font-thin py-2 rounded-lg hover:scale-105 transition-transform w-full tracking-wide"
             >
               Register
             </button>

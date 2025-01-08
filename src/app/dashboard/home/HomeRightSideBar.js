@@ -22,7 +22,7 @@ const HomeRightSideBar = () => {
   };
 
   return (
-    <div className="flex px-4 flex-col gap-4 justify-center space-y-10 py-4 w-full">
+    <div className="flex px-3 flex-col gap-2 justify-center space-y-6 py-2">
       {/* filter */}
       <div className="bg-[#0D0D0D] text-[#8B8B8B] py-4 px-4 w-full  rounded-md">
         Filter feed by...
@@ -113,13 +113,13 @@ const HomeRightSideBar = () => {
       </div>
 
       {/* appointment Link */}
-      <div className="flex flex-col gap-4 border-2 px-4 py-2 w-[350px] rounded-xl">
+      <div className="flex flex-col gap-4 text-sm border-2 px-3 py-3 w-full rounded-xl">
         <p>
           Experience fast attendance by scheduling ahead. Secure your spot and
           receive prompt attention upon arrival.
         </p>
         <Link href="/dashboard/appointment">
-          <button className="bg-primary-secondaryColor px-6 py-2 w-full rounded-xl">
+          <button className="bg-primary-secondaryColor px-3 py-2 w-full rounded-xl">
             Book an Appointment
           </button>
         </Link>

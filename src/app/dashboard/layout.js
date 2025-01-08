@@ -4,14 +4,14 @@ import Sidebar from "./components/Sidebar";
 export default function DashboardLayout({ children }) {
   return (
     <div className="bg-gray-800">
-      <div className="h-[1500px] fixed w-full grid lg:grid-cols-[300px_auto] px-6 gap-6 bg-black ">
+      <div className="h-screen fixed w-full grid grid-cols-[250px_auto] px-2 gap-3 bg-black ">
         <div className=" border-r-2 hidden lg:block">
           <Sidebar />
         </div>
 
         {/* <div className="lg:hidden text-white py-2">0000</div> */}
 
-        <main className="text-white px-1 md:px-0">
+        <main className="text-white px-1">
           <ClientProvider>{children}</ClientProvider>
         </main>
       </div>

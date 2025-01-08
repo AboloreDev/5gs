@@ -16,18 +16,18 @@ const Rent = () => {
   return (
     <div className="">
       {/* Intro */}
-      <div className="border-b-2 py-2 ">
-        <h1 className="text-xl font-bold"> Rent</h1>
-        <p className="text-gray-500">Affordable gadgets for hiring</p>
+      <div className="border-b-2 py-2 px-2 ">
+        <h1 className="text-lg font-bold"> Rent</h1>
+        <p className="text-gray-500 text-sm">Affordable gadgets for hiring</p>
       </div>
 
-      <div className="grid grid-cols-[auto_500px] p-4">
+      <div className="grid grid-cols-[4fr_1fr] p-2">
         {/* Content */}
-        <div className="flex flex-col space-y-8">
+        <div className="flex flex-col space-y-6">
           {/* searchbar */}
           <SearchBar />
           {/* products */}
-          <div className="grid grid-cols-2 place-items-center gap-6 overflow-y-auto h-[1000px] space-y-8">
+          <div className="grid grid-cols-2 place-items-center gap-6 overflow-y-auto h-[1150px] space-y-8">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <ProductsList product={product} key={product.id} />
@@ -44,7 +44,7 @@ const Rent = () => {
           </div>
         </div>
         {/* right side */}
-        <div className="border-l-2 px-10 py-4 flex flex-col space-y-12 ">
+        <div className="border-l-2 px-5 py-4 flex flex-col space-y-6 ">
           {/* <div className="flex flex-col space-y-4 px-4 py-3 h-full">  */}
           <h2 className="text-2xl font-bold">List</h2>
           {/* Render items added to the list */}

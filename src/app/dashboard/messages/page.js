@@ -13,10 +13,10 @@ const Meessages = () => {
 
   console.log(messages);
   return (
-    <div className=" px-8 py-4 ">
+    <div className=" px-2 py-2 ">
       <div className="border-b-2 py-2 ">
-        <h1 className="text-xl font-bold"> Meessages</h1>
-        <p className="text-gray-500">Chat directly with 5GS</p>
+        <h1 className="text-lg font-bold"> Meessages</h1>
+        <p className="text-gray-500 text-sm">Chat directly with 5GS</p>
       </div>
 
       <div className="flex flex-col space-y-4 h-[1200px] justify-between">
@@ -63,7 +63,7 @@ const Meessages = () => {
           {/* message input */}
         </div>
       </div>
-      <div className=" w-full">
+      <div className=" w-full sticky bottom-10 z-10 p-4">
         <MessageInput />
       </div>
     </div>

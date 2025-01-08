@@ -10,13 +10,13 @@ const Feedback = () => {
     <div>
       {" "}
       <div className="border-b-2 py-2 ">
-        <h1 className="text-xl font-bold"> Feedback</h1>
-        <p className="text-gray-500">Provide feedback on our Service</p>
+        <h1 className="text-lg font-bold"> Feedback</h1>
+        <p className="text-gray-500 text-sm">Provide feedback on our Service</p>
       </div>
-      <div className="flex flex-col items-start mt-40 justify-center bg-black text-white p-6 rounded-lg max-w-3xl mx-auto  space-y-6">
+      <div className="flex flex-col items-start mt-40 justify-center bg-black text-white p-6 rounded-lg max-w-[1000px] mx-auto  space-y-6">
         <div className="flex flex-col gap-1">
-          <h4 className="font-bold text-2xl">Give Feedback</h4>
-          <p>How satisfied are you with our services</p>
+          <h4 className="font-bold text-xl">Give Feedback</h4>
+          <p className="text-sm">How satisfied are you with our services</p>
         </div>
         <div className="flex space-x-2 mb-4">
           {[1, 2, 3, 4, 5].map((star) => (

@@ -5,18 +5,18 @@ import CustomCalendar from "../components/Calendar";
 const Appointment = () => {
   return (
     <div>
-      <div className="border-b-2 py-2 ">
-        <h1 className="text-xl font-bold"> Appointment</h1>
+      <div className="border-b-2 py-2 px-2">
+        <h1 className="text-lg font-bold"> Appointment</h1>
         <p className="text-gray-500">Visit us at our office</p>
       </div>
 
-      <div className="grid grid-cols-[auto_500px] p-4 h-[1200px]">
+      <div className="grid grid-cols-[4fr_1fr] p-4 h-screen">
         {/* content */}
         <AppointmentContent />
         {/* sidebar */}
-        <div className="border-l-2 border-t-2 px-10 py-2 flex flex-col space-y-12">
+        <div className="border-l-2 border-t-2 px-4 py-2 flex flex-col space-y-8">
           {/* map */}
-          <div className="flex flex-col border-2 rounded-xl space-y-6 px-4 py-2 mt-8">
+          <div className="flex flex-col border-2 rounded-xl space-y-4 px-4 py-2 mt-8">
             <div className="text-xl mt-4">
               {/* icon */}
               <h3> want to locate us ?</h3>
@@ -39,10 +39,10 @@ const Appointment = () => {
 
           {/* notice board */}
           <div className="flex flex-col space-y-8 bg-gradient-to-r from-[#FF3D00] via-[#0369F0] to-[#FFFFFF80] border-2 rounded-lg px-4 py-2 h-[200px]">
-            <h3 className="text-xl">
+            <h3 className="text-lg">
               <span>0</span>Important notice
             </h3>
-            <p className="text-lg">
+            <p className="text-sm">
               “Please be reminded we are open on Mondays to Saturdays only from
               8am to 5pm”
             </p>
