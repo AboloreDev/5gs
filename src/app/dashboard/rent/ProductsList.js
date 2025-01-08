@@ -16,18 +16,18 @@ const ProductsList = ({ product }) => {
   return (
     <div className="flex flex-col space-y-2 px-4 py-2">
       {/* Image */}
-      <Image src={image} alt="Product Image" width={300} height={300} />
+      <Image src={image} alt="Product Image" width={200} height={200} />
       {/* details */}
       <div className="flex flex-col gap-2">
         {/* name */}
-        <h3>{name}</h3>
+        <h3 className="text-[18px]">{name}</h3>
         {/* description */}
-        <p className="text-[#8B8B8B]">{description}</p>
+        <p className="text-[#8B8B8B] text-[14px]">{description}</p>
         {/* price */}
-        <p>GHs {price}</p>
+        <p className="text-[14px]">GHs {price}</p>
         {/* days */}
         <p>
-          <span className="text-[#8B8B8B]"> for</span> {days}{" "}
+          <span className="text-[#8B8B8B] text-[14px]"> for</span> {days}{" "}
           {days > 1 ? "days" : "day"}
         </p>
       </div>

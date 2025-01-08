@@ -22,7 +22,7 @@ const HomeRightSideBar = () => {
   };
 
   return (
-    <div className="flex px-3 flex-col gap-2 justify-center space-y-6 py-2">
+    <div className="flex flex-col gap-2 justify-center space-y-5 py-2">
       {/* filter */}
       <div className="bg-[#0D0D0D] text-[#8B8B8B] py-2 px-2 w-full  rounded-md">
         Filter feed by...
@@ -58,12 +58,12 @@ const HomeRightSideBar = () => {
       </div>
 
       {/* category */}
-      <div className="flex flex-col gap-2 mb-8 text-sm">
-        <h2 className="text-xl font-bold">Category:</h2>
-        <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-2 text-sm ">
+        <h2 className="text-sm font-bold">Category:</h2>
+        <div className="flex gap-4 flex-wrap text-sm">
           <button
             onClick={() => handleCategoryChange("All")}
-            className={` px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={` px-2 py-2 rounded-full text-sm bg-transparent border-2  ${
               filters.category === "All" ? "border-primary-secondaryColor" : ""
             }`}
           >
@@ -71,7 +71,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Photography")}
-            className={`btn px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={`btn px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Photography"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -81,7 +81,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Make-up")}
-            className={`btn  px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={`btn px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Make-up"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -91,7 +91,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Graphic design")}
-            className={` px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={` px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Graphic design"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -101,7 +101,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Videography")}
-            className={` px-4 py-2 rounded-full bg-transparent border-2  ${
+            className={` px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
               filters.category === "Videography"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -119,7 +119,7 @@ const HomeRightSideBar = () => {
           receive prompt attention upon arrival.
         </p>
         <Link href="/dashboard/appointment">
-          <button className="bg-primary-secondaryColor px-3 py-2 w-full rounded-xl">
+          <button className="bg-primary-secondaryColor px-2 py-2 w-full rounded-xl">
             Book an Appointment
           </button>
         </Link>

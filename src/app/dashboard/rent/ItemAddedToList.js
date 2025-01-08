@@ -8,16 +8,16 @@ const ItemAddedToList = ({ item }) => {
   const { id, name, image } = item;
   return (
     <div>
-      <div className="flex flex-col gap-2 py-2 w-[300px] h-[300px] flex-shrink-0">
+      <div className="flex flex-col gap-3 py-2 w-[250px] h-[250px] flex-shrink-0">
         <Image
           src={image}
           alt={`${name} image`}
-          width={300}
-          height={300}
+          width={200}
+          height={200}
           className="object-cover rounded-lg"
         />
         {/* Item name */}
-        <p className="text-lg font-medium text-center">{name}</p>
+        <p className="text-sm font-medium ">{name}</p>
       </div>
     </div>
   );

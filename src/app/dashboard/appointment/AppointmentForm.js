@@ -9,7 +9,7 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
     <div>
       <div className=" flex justify-center flex-col items-center space-y-8 py-4">
         {/* Tabs */}
-        <div className=" bg-white text-black  px-6 py-3 rounded-full flex space-x-4">
+        <div className=" bg-white text-black px-3 py-3 rounded-full flex space-x-4">
           <button
             className={`px-4 py-2 rounded-full shadow-md ${
               activeTab === "appointment"
@@ -45,7 +45,7 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
               <div className="flex space-x-2 ">
                 {/* Date Picker */}
                 <div className="">
-                  <label htmlFor="date" className="block text-lg mb-1">
+                  <label htmlFor="date" className="block text-sm mb-1">
                     Select Date
                   </label>
                   <input
@@ -57,7 +57,7 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
                 </div>
                 {/* Time Picker */}
                 <div className="">
-                  <label htmlFor="time" className="block text-lg mb-1">
+                  <label htmlFor="time" className="block text-sm mb-1">
                     Select Time
                   </label>
                   <input
@@ -90,7 +90,7 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
         )}
 
         {activeTab === "service" && (
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className=" p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold text-gray-400">
               Book Our Service
             </h2>

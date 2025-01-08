@@ -35,7 +35,7 @@ const Notification = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-[1fr_3fr] p-4">
+      <div className="grid grid-cols-[700px_auto] p-4">
         <div className="flex flex-col">
           <div className="flex gap-4 p-3 text-gray-500">
             <button

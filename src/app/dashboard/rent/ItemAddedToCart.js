@@ -12,18 +12,18 @@ const ItemAddedToCart = ({ item }) => {
   const { handleUpdateCart, deliveryFee } = useContext(ClientContext);
 
   return (
-    <div className="flex gap-2 items-center bg-[#1E1E1E] px-3 py-5 w-full rounded-xl">
+    <div className="flex items-center bg-[#1E1E1E] px-3 py-3 rounded-xl">
       {/* Item details */}
-      <div className="flex flex-col gap-4">
-        <p>{name}</p>
+      <div className="flex flex-col gap-2">
+        <p className="text-[14px]">{name}</p>
         <Image src={image} alt={`${name} Image`} width={150} height={150} />
       </div>
 
       {/* Quantity and Days */}
       <div className="flex flex-col gap-2">
         {/* Quantity */}
-        <div className="flex flex-col ">
-          <p className="text-sm text-[#8B8B8B]">Quantity</p>
+        <div className="flex flex-col text-[14px]">
+          <p className="text-[14px] text-[#8B8B8B]">Quantity</p>
           <div className="flex justify-between items-center gap-4">
             <div className="flex gap-2 items-center">
               <button
@@ -32,7 +32,7 @@ const ItemAddedToCart = ({ item }) => {
               >
                 -
               </button>
-              <span className="text-white">{quantity}</span>
+              <span className="text-white ">{quantity}</span>
               <button
                 onClick={() => handleUpdateCart(id, "increment", "quantity")}
                 className="bg-primary-secondaryColor px-2 rounded-sm"
@@ -40,7 +40,7 @@ const ItemAddedToCart = ({ item }) => {
                 +
               </button>
             </div>
-            <div>GHs {price * quantity}</div>
+            <div className="text-[14px]">GHs {price * quantity}</div>
           </div>
         </div>
 

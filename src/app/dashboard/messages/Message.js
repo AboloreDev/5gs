@@ -31,20 +31,20 @@ const Message = ({ message }) => {
 
   return (
     <div
-      className={`flex flex-col mb-6 p-4 rounded-lg shadow-md w-1/2 h-auto ${
+      className={`flex flex-col mb-6 p-2 rounded-lg shadow-md w-1/2 h-auto ${
         sender === "client"
           ? "translate-x-[100%] bg-gray-200 text-sm "
           : "self-start bg-gray-300 text-sm"
       }`}
     >
-      {text && <p className="text-black px-4 py-2 rounded-lg">{text}</p>}
+      {text && <p className="text-black px-2 py-2 rounded-lg">{text}</p>}
       {file && (
         <div className="p-2 rounded-lg">
           <Image
             src={file}
             alt={fileName}
-            width={500}
-            height={400}
+            width={400}
+            height={200}
             className="rounded-md"
           />
         </div>
@@ -76,7 +76,9 @@ const Message = ({ message }) => {
             </button>
           </div>
         )}
-        <p className="text-sm text-gray-500 text-right flex-grow ">{date}</p>
+        <p className="text-[14px] text-gray-500 text-right flex-grow ">
+          {date}
+        </p>
       </div>
     </div>
   );

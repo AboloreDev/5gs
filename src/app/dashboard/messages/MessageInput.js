@@ -9,7 +9,7 @@ const MessageInput = () => {
   return (
     <form
       onSubmit={sendMessage}
-      className="p-4 flex bg-white rounded-full items-center space-x-4 sticky bottom-0"
+      className="p-2 flex bg-white rounded-full items-center space-x-4 sticky bottom-0"
     >
       <label className="text-black mr-4 cursor-pointer">
         <FaPaperclip size={24} />
@@ -18,7 +18,7 @@ const MessageInput = () => {
       {/* input field */}
       <input
         type="text"
-        className="flex-1 p-2 rounded-lg text-xl text-black outline-none"
+        className="flex-1 p-2 rounded-lg text-[20px] text-black outline-none"
         placeholder={
           previewFiles.length > 0
             ? "Add a caption (optional)"
