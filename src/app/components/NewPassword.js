@@ -36,7 +36,7 @@ const CreateNewPasswordModal = ({ setShowCreatePassword }) => {
     <div>
       {/* Modal */}
       <div className="fixed inset-0 bg-black bg-opacity-50  backdrop-blur-md flex items-center justify-center z-50">
-        <div className="bg-white w-full sm:w-[500px] md:w-[550px] lg:w-[600px] max-w-[90%] py-6 px-8 rounded-3xl shadow-lg">
+        <div className="bg-white w-[400px] h-auto py-5 px-3 rounded-3xl shadow-lg">
           <div className="flex flex-col space-y-8">
             <h2 className="text-2xl font-bold text-center">
               Create New Password

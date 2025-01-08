@@ -60,13 +60,13 @@ export default function Page() {
   }
 
   return (
-    <div className="min-w-full bg-bgImage bg-no-repeat min-h-screen w-screen bg-cover bg-center">
+    <div className=" bg-bgImage bg-no-repeat bg-cover">
       <div className="flex justify-center items-center h-screen ">
         <form
-          className="flex flex-col space-y-12 w-[90%] max-w-[700px] px-4 py-2 h-auto sm:w-[80%] sm:h-[auto] sm:p-6 mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
+          className="flex flex-col space-y-12 max-w-[500px] px-4 py-2 h-auto  mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
           onSubmit={formik.handleSubmit}
         >
-          <div className="text-3xl text-center">Sign in</div>
+          <div className="text-2xl text-center">Sign in</div>
 
           <div className="flex flex-col space-y-4">
             {/* Email Field */}
@@ -75,7 +75,7 @@ export default function Page() {
               <div className="relative w-full flex justify-end items-center">
                 <input
                   type="email"
-                  className="p-2 rounded-lg bg-transparent border-2 border-white outline-none w-full px-4"
+                  className="p-2 rounded-lg bg-transparent border-2 border-white outline-none w-full"
                   {...formik.getFieldProps("email")}
                 />
                 <span className="absolute px-2 text-xl text-white">
@@ -93,7 +93,7 @@ export default function Page() {
               <div className="relative w-full flex justify-end items-center">
                 <input
                   type="password"
-                  className="p-2 rounded-lg bg-transparent border-2 border-white outline-none w-full px-4"
+                  className="p-2 rounded-lg bg-transparent border-2 border-white outline-none w-full"
                   {...formik.getFieldProps("password")}
                 />
                 <span className="absolute px-2 text-xl text-white">
@@ -106,7 +106,7 @@ export default function Page() {
             </div>
 
             {/* Keep me signed in */}
-            <div className="flex justify-between items-center text-lg sm:flex-col sm:space-y-2 sm:items-start">
+            <div className="flex justify-between items-center text-lg">
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -135,10 +135,10 @@ export default function Page() {
             </div>
 
             {/* Continue with Google */}
-            <div className="flex text-xl justify-center items-center space-x-4 sm:space-x-6 sm:text-lg">
-              <hr className="w-[200px]" />
+            <div className="flex text-xl justify-center items-center space-x-4">
+              <hr className="w-[100px]" />
               <p>or continue with</p>
-              <hr className="w-[200px]" />
+              <hr className="w-[100px]" />
             </div>
 
             <button className="flex justify-center items-center text-center border-2 w-1/2 mx-auto p-2 rounded-lg bg-transparent text-white font-thin relative sm:w-full">
@@ -146,7 +146,7 @@ export default function Page() {
             </button>
 
             {/* Sign-up Link */}
-            <div className="text-xl text-center ">
+            <div className="text-lg text-center ">
               <p>
                 Don&apos;t have an account?{" "}
                 <Link

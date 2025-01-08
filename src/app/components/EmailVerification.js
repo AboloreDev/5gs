@@ -62,8 +62,8 @@ export default function EmailVerification({
       className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center z-50"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white w-full sm:w-[500px] md:w-[600px] max-w-[90%] py-6 px-6 rounded-md shadow-lg flex flex-col justify-center items-start space-y-8">
-        <h2 className="text-2xl sm:text-xl md:text-3xl tracking-widest font-bold text-center">
+      <div className="bg-white w-full sm:w-[400px]  py-3 px-3 rounded-md shadow-lg flex flex-col justify-center items-start space-y-8">
+        <h2 className="text-xl tracking-widest font-bold text-center">
           Email Verification
         </h2>
         <p className="mb-4 text-lg sm:text-base text-[#5D6A83] font-light text-center">
@@ -79,7 +79,7 @@ export default function EmailVerification({
               value={digit}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-[50px] sm:w-[70px] h-[50px] sm:h-[70px] text-xl sm:text-2xl text-center border rounded-md focus:ring-[#FF4820] focus:ring-2 text-[#FF3D00] "
+              className="w-[50px] h-[50px] text-sm text-center border rounded-md focus:ring-[#FF4820] focus:ring-2 text-[#FF3D00] "
               maxLength="1"
               required
             />

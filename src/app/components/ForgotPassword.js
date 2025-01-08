@@ -17,7 +17,7 @@ const ForgotPassword = ({ onContinue }) => {
       className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center z-50"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white w-[90%] max-w-[650px] h-auto  sm:w-[80%] md:h-auto py-6 px-8 rounded-md shadow-lg flex flex-col justify-center items-start space-y-8">
+      <div className="bg-white max-w-[400px] h-auto py-4 px-4 rounded-md shadow-lg flex flex-col justify-center items-start space-y-4">
         <h2 className="text-2xl font-bold mb-2 tracking-widest text-center sm:text-xl">
           Reset Password
         </h2>
@@ -28,7 +28,7 @@ const ForgotPassword = ({ onContinue }) => {
         <input
           type="email"
           placeholder="johndoe@example.com"
-          className="w-full px-6 py-4 text-xl rounded-md bg-[#99999933] focus:outline-none"
+          className="w-full px-4 py-4 text-lg rounded-md bg-[#99999933] focus:outline-none"
           required
         />
         <Link
