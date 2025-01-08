@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const VideographyCard = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
       <div className="relative bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-auto md:h-[350px] hidden md:flex items-center justify-start">
         <Image
           src="/videography.png"
@@ -11,7 +11,7 @@ const VideographyCard = () => {
           height={200}
           className=" translate-x-96 -translate-y-56"
         />
-        <h3 className="absolute text-[80px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#AE67FA] to-[#F49867]">
+        <h3 className="absolute text-[60px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#AE67FA] to-[#F49867]">
           Video <br /> graphy
         </h3>
       </div>
@@ -30,7 +30,7 @@ const VideographyCard = () => {
       </div>
 
       <div>
-        <p className="mt-4 font-thin text-lg md:text-2xl leading-relaxed">
+        <p className="mt-4 font-thin text-xl leading-relaxed text-[#81AFDD]">
           Lorem ipsum dolor sit amet consectetur. In neque mollis amet mauris
           malesuada turpis auctor lectus. Turpis pharetra fermentum justo
           egestas risus dignissim tempor in. Elementum est libero scelerisque

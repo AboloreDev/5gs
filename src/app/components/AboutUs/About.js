@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <section className="max-w-screen-xl mx-auto relative text-white py-16 px-8 sm:px-16 lg:px-24 rounded-lg bg-gradient-to-r from-[#0F4279] to-[#1B78DE] mt-16 sm:mt-32">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="mt-60 max-w-[1100px] mx-auto relative text-white py-10 px-4 rounded-lg bg-gradient-to-r from-[#0F4279] 80% ,to-[#1B78DE] 20%">
+      <div className="max-w-[1000px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <AboutText />
         <AboutImage />
       </div>

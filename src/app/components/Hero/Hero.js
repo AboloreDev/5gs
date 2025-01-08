@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="mt-20 max-w-screen-xl mx-auto px-2">
-      <h1 className=" relative text-[100px] font-bold bg-gradient-to-r  from-[#AE67FA] to-[#F49867] bg-clip-text text-transparent">
+    <section className="mt-20 max-w-[1100px] mx-auto px-2">
+      <h1 className=" relative text-[90px] font-bold bg-gradient-to-r  from-[#AE67FA] to-[#F49867] bg-clip-text text-transparent">
         Capture Every Moment With Us
       </h1>
-      <div className="-translate-x-44 right-96 -translate-y-80 absolute w-[800px] h-[700px]">
+      <div className="translate-x-[80%] -translate-y-80 absolute w-[700px] h-[600px]">
         <Image
           src="/camera.png"
           alt="Hero Image"

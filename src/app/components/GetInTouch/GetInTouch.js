@@ -2,7 +2,7 @@ import GoogleMap from "./GoogleMap";
 
 const GetInTouch = () => {
   return (
-    <section className="mb-52 max-w-[1400px] mx-auto px-8 md:px-16">
+    <section className="mb-52 max-w-[1200px] mx-auto px-4">
       {/* Title */}
       <div className="text-center text-white font-bold text-2xl mb-16">
         Get In Touch

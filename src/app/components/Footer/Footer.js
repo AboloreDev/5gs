@@ -3,23 +3,23 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 export default function Footer() {
   return (
-    <footer className="bg-[#001F3F] text-white py-20">
-      <div className="max-w-[1200px] mx-auto px-4 py-12 text-center">
+    <footer className="bg-gradient-to-r from-[#002853] 100% ,to-[#040C18] 0% text-white py-10">
+      <div className="max-w-[1200px] mx-auto px-4 text-center">
         {/* Newsletter Subscription Section */}
 
         {/* Logo Section */}
-        <div className="mt-10 absolute translate-y-28 -translate-x-96">
+        <div className="mt-10 absolute -translate-y- -translate-x-96">
           <Image
             src="/footer.png"
             alt="5GS Media Logo"
             className=""
-            width={600}
-            height={400}
+            width={400}
+            height={200}
           />
         </div>
         <div className="flex flex-col space-y-32 gap-4">
-          <div className="bg-[#112D57] rounded-lg px-6 py-20 w-full shadow-lg relative">
-            <h2 className="text-2xl md:text-4xl tracking-wider font-bold text-primary-secondaryColor mb-4">
+          <div className="bg-[#112D57] rounded-lg px-3 py-10 w-full shadow-lg relative">
+            <h2 className="text-3xl tracking-wider font-bold text-primary-secondaryColor mb-4">
               Subscribe To Our Newsletter
             </h2>
             <p className="text-gray-300 mb-4">
@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Social Media Links */}
           <div className="flex flex-col space-y-8">
-            <p className="text-2xl">
+            <p className="text-xl">
               Follow us on all our social media platform
             </p>
             <div className="flex justify-center text-2xl space-x-8 mt-6">

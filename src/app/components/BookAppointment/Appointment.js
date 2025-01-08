@@ -1,6 +1,6 @@
 const Appointment = () => {
   return (
-    <div className="max-w-[1250px] mx-auto px-4">
+    <div className="max-w-[1200px] mx-auto px-4">
       {/* Appointment Section */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 bg-gradient-to-r from-[#AE67FA] to-[#F49867] py-12 px-8 rounded-xl">
         {/* Text Content */}
