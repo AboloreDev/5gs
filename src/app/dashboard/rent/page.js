@@ -23,7 +23,7 @@ const Rent = () => {
 
       <div className="grid grid-cols-[auto_450px] p-2">
         {/* Content */}
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col space-y-4">
           {/* searchbar */}
           <SearchBar />
           {/* products */}
