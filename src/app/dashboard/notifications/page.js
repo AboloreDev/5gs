@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext, useState } from "react";
-import Notifications from "./Notifications";
 import { ClientContext } from "@/app/context/ClientContext";
 import { CiCalendarDate } from "react-icons/ci";
 
