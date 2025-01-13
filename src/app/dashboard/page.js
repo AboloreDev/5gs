@@ -1,10 +1,10 @@
 import Appointment from "./appointment/page";
-import Sidebar from "./components/Sidebar";
 import Feedback from "./feedback/page";
 import HomePage from "./home/page";
 import DashboardLayout from "./layout";
 import Meessages from "./messages/page";
-import Notification from "./notification/page";
+import Notification from "./notifications/page";
+
 import Rent from "./rent/page";
 
 export default function ClientDashboard() {
