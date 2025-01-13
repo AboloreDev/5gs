@@ -63,10 +63,10 @@ export default function EmailVerification({
       onClick={handleBackdropClick}
     >
       <div className="bg-white w-full sm:w-[400px]  py-3 px-3 rounded-md shadow-lg flex flex-col justify-center items-start space-y-8">
-        <h2 className="text-xl tracking-widest font-bold text-center">
+        <h2 className="text-lg tracking-widest font-bold text-center">
           Email Verification
         </h2>
-        <p className="mb-4 text-lg sm:text-base text-[#5D6A83] font-light text-center">
+        <p className="mb-4 text-sm text-[#5D6A83] font-light text-center">
           Please enter the 5-digit verification code that was sent to the email
           you provided.
         </p>
@@ -93,14 +93,14 @@ export default function EmailVerification({
         )}
         <button
           onClick={handleVerify}
-          className="w-full text-xl bg-[#FF4820] text-white py-4 rounded-md hover:bg-orange-600"
+          className="w-full text-sm bg-[#FF4820] text-white py-2 rounded-md hover:bg-orange-600"
         >
           Continue
         </button>
         <div className="flex justify-center items-center text-sm text-center">
           <button
             onClick={handleResendCode}
-            className="text-blue-500 hover:underline mt-4"
+            className="text-blue-500 underline mt-4"
           >
             Resend code
           </button>

@@ -32,14 +32,13 @@ export default function Page() {
     initialValues: {
       email: "",
       password: "",
-      keepSignedIn: false, // Add keep me signed in field
+      keepSignedIn: false,
     },
     validationSchema: signInSchema,
     onSubmit: (values) => {
       console.log("Sign-In Data:", values);
       // Handle sign-in logic here (e.g., API calls).
       if (values.keepSignedIn) {
-        // Logic for keeping the user signed in (e.g., storing session info in localStorage)
         console.log("User will stay signed in.");
       } else {
         console.log("User will not stay signed in.");
@@ -66,9 +65,9 @@ export default function Page() {
           className="flex flex-col space-y-12 max-w-[500px] px-4 py-2 h-auto  mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
           onSubmit={formik.handleSubmit}
         >
-          <div className="text-2xl text-center">Sign in</div>
+          <div className="text-xl text-center">Sign in</div>
 
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 text-sm">
             {/* Email Field */}
             <div className="flex flex-col space-y-2">
               <p>Email</p>
@@ -106,7 +105,7 @@ export default function Page() {
             </div>
 
             {/* Keep me signed in */}
-            <div className="flex justify-between items-center text-lg">
+            <div className="flex justify-between items-center">
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -126,16 +125,16 @@ export default function Page() {
 
             {/* Login Button */}
             <div className="relative flex items-center justify-center">
-              <button className="bg-orange-600 text-xl text-white font-thin py-2 rounded-lg hover:scale-105 transition-transform w-full tracking-wide">
+              <button className="bg-primary-secondaryColor text-lg text-white font-thin py-2 rounded-lg hover:scale-105 transition-transform w-full tracking-wide">
                 Login
               </button>
-              <span className="absolute px-2 ml-32 text-xl text-white">
+              <span className="absolute px-2 ml-32 text-lg text-white">
                 <CiLogin />
               </span>
             </div>
 
             {/* Continue with Google */}
-            <div className="flex text-xl justify-center items-center space-x-4">
+            <div className="flex justify-center items-center space-x-4">
               <hr className="w-[100px]" />
               <p>or continue with</p>
               <hr className="w-[100px]" />
@@ -146,7 +145,7 @@ export default function Page() {
             </button>
 
             {/* Sign-up Link */}
-            <div className="text-lg text-center ">
+            <div className="text-sm text-center ">
               <p>
                 Don&apos;t have an account?{" "}
                 <Link
@@ -160,7 +159,7 @@ export default function Page() {
           </div>
 
           {/* Footer */}
-          <div className="text-sm flex justify-center items-center space-x-4">
+          <div className="text-sm flex justify-center text-gray-200 items-center space-x-4">
             Copyright 2024, 5GS Inc.
           </div>
         </form>

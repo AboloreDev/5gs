@@ -29,14 +29,14 @@ const Notification = () => {
   return (
     <div>
       <div className="border-b-2 py-2 px-2">
-        <h1 className="text-lg font-bold"> Appointment</h1>
-        <p className="text-gray-500 text-sm">
+        <h1 className="text-sm font-bold"> Notifications</h1>
+        <p className="text-gray-500 text-[12px]">
           Read your received notifications
         </p>
       </div>
 
-      <div className="grid grid-cols-[700px_auto] p-4">
-        <div className="flex flex-col">
+      <div className="grid grid-cols-[500px_auto] p-4">
+        <div className="flex flex-col text-sm">
           <div className="flex gap-4 p-3 text-gray-500">
             <button
               className={`px-4 py-2 ${
@@ -56,9 +56,9 @@ const Notification = () => {
             </button>
           </div>
 
-          <div className="space-y-4 overflow-y-auto h-[1200px]">
+          <div className="space-y-4 overflow-y-auto h-[1200px] text-white">
             {notifications.length === 0 ? (
-              <div className="flex justify-center items-center h-screen text-gray-600 text-2xl">
+              <div className="flex justify-center items-center text-sm mt-20 text-gray-600 ">
                 <p>
                   No Messages, <br /> Please book an Appointment
                 </p>
@@ -67,23 +67,23 @@ const Notification = () => {
               <>
                 {activeTab === "unread" ? (
                   unreadNotifications.length === 0 ? (
-                    <div className="flex justify-center items-center h-screen text-gray-600 text-2xl">
+                    <div className="flex justify-center items-center mt-20 text-gray-600 text-sm">
                       <p>No unread messages</p>
                     </div>
                   ) : (
                     unreadNotifications.map((notif, index) => (
                       <div
                         key={index}
-                        className="flex flex-row-reverse  px-4 py-2 items-center justify-between gap-5 rounded-lg shadow-md cursor-pointer w-[500px]"
+                        className="flex flex-row-reverse  px-2 py-2 items-center justify-between gap-5 rounded-lg shadow-md cursor-pointer w-[500px]"
                         onClick={() => displayDetails(notif)}
                       >
                         <div className="gap-2 w-[600px]">
-                          <h4 className="font-bold text-lg">{notif.title}</h4>
+                          <h4 className="font-bold text-sm">{notif.title}</h4>
                           <div className="flex justify-between items-center text-gray-600">
-                            <p className="text-sm">
+                            <p className="text-[12px]">
                               Click here to view details
                             </p>
-                            <p className="text-sm">{notif.date}</p>
+                            <p className="text-[12px]">{notif.date}</p>
                           </div>
                         </div>
                         <div className="bg-red-500 h-3 w-3 rounded-full"></div>
@@ -92,19 +92,19 @@ const Notification = () => {
                   )
                 ) : activeTab === "read" ? (
                   readNotifications.length === 0 ? (
-                    <div className="flex justify-center items-center h-screen text-gray-600 text-2xl">
+                    <div className="flex justify-center items-center mt-20 text-sm text-gray-600 ">
                       <p>No read messages</p>
                     </div>
                   ) : (
                     readNotifications.map((notif) => (
                       <div
                         key={notif.id}
-                        className="flex items-center justify-between px-4 py-2 cursor-pointer w-[500px] p-4 rounded-lg shadow-md text-gray-500"
+                        className="flex items-center justify-between px-2 py-2 tex-sm cursor-pointer w-[500px] rounded-lg shadow-md text-gray-500"
                         onClick={() => displayDetails(notif)}
                       >
                         <div className="gap-2 w-[600px]">
-                          <h4 className="text-lg">{notif.title}</h4>
-                          <p className="text-sm">{notif.date}</p>
+                          <h4 className="text-sm">{notif.title}</h4>
+                          <p className="text-[12px]">{notif.date}</p>
                         </div>
                       </div>
                     ))

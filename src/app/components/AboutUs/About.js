@@ -11,13 +11,31 @@ const About = () => {
       </div>
 
       {/* Decorative Camera Image */}
-      <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 sm:-translate-x-40 sm:-translate-y-40">
+      <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 sm:-translate-x-40 sm:-translate-y-40 hidden lg:block">
         <Image
           src="/camera2.png"
           alt="Camera"
           width={400}
           height={400}
-          className="lg:w-64 xl:w-80"
+          className="lg:w-64 xl:w-80 md:w-40 sm:w-20"
+        />
+      </div>
+      <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 sm:-translate-x-40 sm:-translate-y-40 md:block hidden">
+        <Image
+          src="/camera2.png"
+          alt="Camera"
+          width={300}
+          height={300}
+          className="lg:w-64 xl:w-80 md:w-40 sm:w-20"
+        />
+      </div>
+      <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 sm:-translate-x-40 sm:-translate-y-40">
+        <Image
+          src="/camera2.png"
+          alt="Camera"
+          width={200}
+          height={200}
+          className="lg:w-64 xl:w-80 md:w-40 sm:w-20"
         />
       </div>
     </section>

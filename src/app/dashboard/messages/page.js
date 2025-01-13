@@ -1,25 +1,40 @@
 "use client";
 
 import { ClientContext } from "@/app/context/ClientContext";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Message from "./Message";
 import MessageInput from "./MessageInput";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Meessages = () => {
   // context menu
-  const { messages, previewFiles, caption, updateCaption, removeFile } =
+  const { messages, previewFiles, updateCaption, removeFile } =
     useContext(ClientContext);
 
-  console.log(messages);
+  const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const [postId, setPostId] = useState(null);
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    const postId = searchParams.get("postId");
+    const image = searchParams.get("image");
+    if (postId && image) {
+      setPostId(postId);
+      setImage(image);
+    }
+  }, [searchParams]);
+
   return (
-    <div className=" px-2 py-2 ">
+    <div className=" px-10 py-2 ">
       <div className="border-b-2 py-2 ">
-        <h1 className="text-[24px] font-bold"> Meessages</h1>
+        <h1 className="text-[20px] font-bold"> Meessages</h1>
         <p className="text-gray-500 text-[14px]">Chat directly with 5GS</p>
       </div>
 
-      <div className="flex flex-col space-y-4 overflow-y-auto h-[1200px] justify-between">
+      <div className="flex flex-col space-y-4 overflow-y-auto h-[700px]">
         {/* messages */}
         <div className=" mt-10 flex-1 overflow-y-auto  p-2  space-y-4">
           {messages.length === 0 ? (
@@ -45,8 +60,8 @@ const Meessages = () => {
                 <Image
                   src={file.url}
                   alt={file.name}
-                  width={500}
-                  height={400}
+                  width={300}
+                  height={300}
                   className="rounded-md"
                 />
                 <input
@@ -63,7 +78,7 @@ const Meessages = () => {
           {/* message input */}
         </div>
       </div>
-      <div className=" w-full sticky bottom-10 z-10 p-4">
+      <div className=" w-full sticky z-10 p-2 -bottom-4">
         <MessageInput />
       </div>
     </div>

@@ -9,14 +9,14 @@ import {
 
 export default function CEOSection() {
   return (
-    <section className="bg-[#031B34] text-white py-8 mt-20 h-screen ">
+    <section className="bg-[#031B34] text-white py-8 mt-20 min-h-screen ">
       <div className="max-w-[1200px] mx-auto ">
         {/* Header */}
-        <h2 className="text-[30px] md:text-[60px] text-center md:text-left font-bold mt-12 mb-10">
+        <h2 className="text-[30px] lg:text-[60px] text-center md:text-center font-bold mt-12 mb-10">
           Word from our CEO
         </h2>
 
-        <div className="md:flex flex-row-reverse items-center gap-6 hidden">
+        <div className="lg:flex flex-row-reverse items-center gap-6 hidden">
           {/* Image */}
           <div className="absolute z-20 translate-x-20 translate-y-8">
             <Image
@@ -78,8 +78,8 @@ export default function CEOSection() {
         </div>
 
         {/* modile screen */}
-        <div className="flex flex-col justify-center items-center md:hidden gap-6">
-          <Image src="/ceo.png" alt="Mr. Seth Duodu" width={400} height={100} />
+        <div className="flex flex-col px-6 justify-between items-center lg:hidden gap-6">
+          <Image src="/ceo.png" alt="Mr. Seth Duodu" width={300} height={50} />
 
           <div className="max-w-[500px] bg-gray-800 px-4 py-6">
             <h3 className=" font-semibold mb-2 text-[25px] tracking-wider">

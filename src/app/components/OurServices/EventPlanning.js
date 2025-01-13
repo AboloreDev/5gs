@@ -3,7 +3,7 @@ import Image from "next/image";
 const EventPlanning = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-      <div className="relative bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-auto md:h-[350px] hidden md:flex items-center justify-start">
+      <div className="relative bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-auto md:h-[350px] hidden lg:flex items-center justify-start">
         <Image
           src="/eventPlanning.png"
           alt="Event Planning"
@@ -16,7 +16,7 @@ const EventPlanning = () => {
         </h3>
       </div>
       {/* Mobile view */}
-      <div className=" bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-[250px] md:hidden flex flex-row-reverse gap-8 items-center justify-center">
+      <div className=" bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-[250px] lg:hidden flex flex-row-reverse gap-8 items-center justify-center">
         <Image
           src="/eventPlanning.png"
           alt="Event Planning"

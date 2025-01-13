@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const AboutImage = () => {
   return (
-    <div className="relative">
+    <div className="relative mx-auto ">
       <div className="rounded-xl overflow-hidden shadow-lg">
         <Image
           src="/AboutVideo.png"

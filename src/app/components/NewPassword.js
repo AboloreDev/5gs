@@ -38,7 +38,7 @@ const CreateNewPasswordModal = ({ setShowCreatePassword }) => {
       <div className="fixed inset-0 bg-black bg-opacity-50  backdrop-blur-md flex items-center justify-center z-50">
         <div className="bg-white w-[400px] h-auto py-5 px-3 rounded-3xl shadow-lg">
           <div className="flex flex-col space-y-8">
-            <h2 className="text-2xl font-bold text-center">
+            <h2 className="text-xl font-bold text-center">
               Create New Password
             </h2>
             <p className="text-sm text-[#718096] text-center">
@@ -47,7 +47,7 @@ const CreateNewPasswordModal = ({ setShowCreatePassword }) => {
             </p>
 
             {/* Input for New Password */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 text-sm">
               <label className="text-[#5D6A83]">Password</label>
               <div className="relative mb-4">
                 <input
@@ -67,7 +67,7 @@ const CreateNewPasswordModal = ({ setShowCreatePassword }) => {
             </div>
 
             {/* Input for Confirm Password */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 text-sm">
               <label className="text-[#5D6A83]">Confirm Password</label>
 
               <div className="relative mb-4">
@@ -96,7 +96,7 @@ const CreateNewPasswordModal = ({ setShowCreatePassword }) => {
 
             <button
               onClick={handleCloseCreatePasswordModal}
-              className={`w-full text-lg bg-[#FF4820] text-white py-2 rounded-md hover:bg-orange-600 transition-all 
+              className={`w-full text-sm bg-[#FF4820] text-white py-2 rounded-md hover:bg-orange-600 transition-all 
                 ${
                   !password || !confirmPassword || password !== confirmPassword
                     ? "opacity-50 cursor-not-allowed"

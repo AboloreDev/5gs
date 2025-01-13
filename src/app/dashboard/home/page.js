@@ -13,20 +13,19 @@ export default function HomePage() {
 
   return (
     <div className="text-white">
-      <div className="border-b-2 py-2 px-2">
-        <h1 className="text-lg font-bold"> Home</h1>
-        <p className="text-gray-500">Explore our products</p>
-      </div>
-
-      <div className="grid grid-cols-[auto_300px] p-2 min-h-screen">
+      <div className="grid grid-cols-[auto_350px] p-2 min-h-screen">
         {/* posts */}
-        <div className=" overflow-y-auto h-screen">
+        <div className=" overflow-y-auto overflow-hidden h-screen">
+          <div className="border-b-2 border-gray-600 py-2 px-2">
+            <h1 className="text-lg font-bold"> Home</h1>
+            <p className="text-gray-500 text-sm">Explore our products</p>
+          </div>
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}
         </div>
         {/* rightside */}
-        <div className="border-l-2 px-2">
+        <div className="border-l-2 px-6">
           <HomeRightSideBar />
         </div>
       </div>

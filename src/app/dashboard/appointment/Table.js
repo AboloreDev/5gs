@@ -25,10 +25,10 @@ export function Table({ data, onEdit, onCancel }) {
       <table className="w-full text-left table-auto border-collapse">
         <thead className="bg-gray-100 text-gray-700">
           <tr>
-            <th className="p-4 border">Appointment ID</th>
-            <th className="p-4 border">Date Booked For</th>
-            <th className="p-4 border">Status</th>
-            <th className="p-4 border">Actions</th>
+            <th className="p-2 border text-sm">Appointment ID</th>
+            <th className="p-2 border text-sm">Date Booked For</th>
+            <th className="p-2 border text-sm">Status</th>
+            <th className="p-2 border text-sm">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -39,11 +39,11 @@ export function Table({ data, onEdit, onCancel }) {
                 index % 2 === 0 ? "bg-white" : "bg-gray-50"
               } hover:bg-gray-100`}
             >
-              <td className="p-4 border">{appointment.id}</td>
-              <td className="p-4 border">{appointment.date}</td>
-              <td className="p-4 border">
+              <td className="p-2 border text-[12px]">{appointment.id}</td>
+              <td className="p-2 border text-[12px]">{appointment.date}</td>
+              <td className="p-2 border text-[12px]">
                 <span
-                  className={`px-3 py-1 rounded-full text-sm ${
+                  className={`px-2 py-1 rounded-full text-[12px] ${
                     appointment.status === "Approved"
                       ? "bg-green-100 text-green-700"
                       : appointment.status === "Pending"
@@ -54,16 +54,16 @@ export function Table({ data, onEdit, onCancel }) {
                   {appointment.status}
                 </span>
               </td>
-              <td className="p-4 border space-x-2">
+              <td className="p-2 border space-x-2 text-[12px]">
                 <button
                   onClick={() => handleEdit(appointment.id)}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                  className="px-2 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => onCancel(appointment.id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                  className="px-2 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600"
                 >
                   Cancel
                 </button>

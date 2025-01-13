@@ -11,7 +11,7 @@ const CheckOut = () => {
   return (
     <div>
       {/* Checkout Section */}
-      <div className="space-y-2 w-full sticky bottom-0 z-10 p-4">
+      <div className="space-y-2 w-full sticky bottom-0 z-10 p-4 text-sm">
         <div className="flex justify-between">
           <p>Subtotal:</p>
           <p className="text-[#8B8B8B]">GHS {subTotal}</p>

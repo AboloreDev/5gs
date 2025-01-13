@@ -2,7 +2,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }) {
   const pages = [...Array(totalPages).keys()].map((i) => i + 1);
 
   return (
-    <div className="flex px-4 justify-center items-center space-x-2 mt-4 w-full text-center">
+    <div className="flex px-2 justify-center text-sm items-center space-x-2 mt-4 w-full text-center">
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
@@ -16,7 +16,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }) {
           onClick={() => onPageChange(page)}
           className={`px-3 py-1 rounded-lg ${
             page === currentPage
-              ? "bg-orange-500 text-white"
+              ? "bg-primary-secondaryColor text-white"
               : "bg-gray-200 hover:bg-gray-300"
           }`}
         >

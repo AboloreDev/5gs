@@ -15,7 +15,7 @@ const AppointmentTable = () => {
     useContext(ClientContext);
 
   // Calculate total pages after appointments are fetched or context is updated
-  const totalPages = Math.ceil(appointments.length / 10);
+  const totalPages = Math.ceil(appointments.length / 8);
 
   const handleSearch = (query) => {
     setQuery(query);
@@ -27,29 +27,29 @@ const AppointmentTable = () => {
   );
 
   const paginatedAppointments = filteredAppointments.slice(
-    (currentPage - 1) * 10,
-    currentPage * 10
+    (currentPage - 1) * 8,
+    currentPage * 8
   );
 
   return (
-    <div className="px-6 py-4 text-black w-full overflow-y-auto">
+    <div className="px-4 py-2 text-black w-full">
       {appointments.length === 0 ? (
         <p className="flex text-gray-500 justify-center items-center">
           Please create an appointment to continue
         </p>
       ) : (
         <div className="bg-white">
-          <div className="sticky top-0 z-10 bg-white p-4">
+          <div className="sticky top-0 z-10 bg-white p-2">
             <SearchAppointment onSearch={handleSearch} />
           </div>
-          <div className="overflow-y-auto max-h-[500px]">
+          <div className="overflow-y-auto h-screen">
             <Table
               data={paginatedAppointments}
               onEdit={editAppointment}
               onCancel={cancelAppointment}
             />
           </div>
-          <div className="sticky bottom-0 z-10 p-4">
+          <div className="sticky bottom-0 z-10 p-2">
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

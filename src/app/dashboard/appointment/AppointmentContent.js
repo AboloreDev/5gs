@@ -8,7 +8,7 @@ export default function AppointmentContent() {
   const [activeTab, setActiveTab] = useState("appointment");
 
   return (
-    <div className="flex flex-col items-center space-y-8 ">
+    <div className="flex flex-col items-center space-y-3 ">
       {/* Main Content Area */}
       {/* Appointment Form */}
       <AppointmentForm activeTab={activeTab} setActiveTab={setActiveTab} />

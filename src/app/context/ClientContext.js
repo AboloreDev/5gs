@@ -182,7 +182,18 @@ export const ClientProvider = (props) => {
   };
 
   // Appointment context
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([
+    {
+      id: "5GS0001",
+      date: "2025-01-12",
+      status: "Approved",
+    },
+    {
+      id: "5GS0002",
+      date: "2025-01-12",
+      status: "Pending",
+    },
+  ]);
   const [notifications, setNotifications] = useState([]);
   // add appointment function
 
@@ -190,12 +201,12 @@ export const ClientProvider = (props) => {
     setAppointments((prev) => [...prev, appointment]);
     // Add corresponding notification
     const notification = {
-      id: Date.now(), // Unique notification ID
+      id: Date.now(),
       title: "Appointment Booked Successfully",
       details: ` You have successfully booked an appointment with 5GS.
                   Appointment scheduled on ${appointment.date}`,
       date: new Date().toLocaleString(),
-      unread: true, // Default to unread
+      unread: true,
     };
     setNotifications((prev) => [...prev, notification]);
   }
@@ -217,10 +228,41 @@ export const ClientProvider = (props) => {
     const date = e.target.date.value;
     const time = e.target.time.value;
     const message = e.target.message.value;
+    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    const timeRegex = /^\d{2}:\d{2}$/;
+    if (!dateRegex.test(date)) {
+      alert("Please enter a valid date in the format DD/MM/YYYY.");
+      return;
+    }
+    if (!timeRegex.test(time)) {
+      alert("Please enter a valid time in the format HH:MM.");
+      return;
+    }
+    if (!message.trim()) {
+      alert("Please provide a description for the appointment.");
+      return;
+    }
+
+    // Get current date and time
+    const now = new Date();
+    const [day, month, year] = date
+      .split("/")
+      .map((part) => parseInt(part, 10));
+    const [hour, minute] = time.split(":").map((part) => parseInt(part, 10));
+
+    const selectedDate = new Date(year, month - 1, day, hour, minute);
+
+    const timeDifference = selectedDate.getTime() - now.getTime();
+    const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
+    if (timeDifference < oneDayInMilliseconds) {
+      alert("Please pick a date and time at least 24 hours from now.");
+      return;
+    }
 
     const newAppointment = {
-      id: `5GS${new Date().toISOString()}`,
-      date: `${date} at ${time}`,
+      id: `5GS${new Date().getDate()}`,
+      date: `${date}`,
       message,
       status: "Pending",
     };
@@ -245,12 +287,10 @@ export const ClientProvider = (props) => {
   function cancelAppointment(id) {
     confirm(`Cancel appointment: ${id}`);
     setAppointments(
-      appointments.map(
-        (appointment) =>
-          appointment.id === id
-            ? { ...appointment, status: "Canceled" }
-            : appointment
-        // users cant edit after cancel
+      appointments.map((appointment) =>
+        appointment.id === id
+          ? { ...appointment, status: "Canceled" }
+          : appointment
       )
     );
   }
@@ -287,78 +327,53 @@ export const ClientProvider = (props) => {
   };
 
   // Homepage context
-  const [posts, setPosts] = useState(() => {
-    if (typeof window !== "undefined") {
-      const savedPosts = localStorage.getItem("posts");
-      return savedPosts
-        ? JSON.parse(savedPosts)
-        : [
-            {
-              id: 1,
-              title: "Book us for your makeup session",
-              category: "Photography",
-              type: "Picture",
-              image: "/HomeImage.png",
-              date: "2025-01-01",
-              likes: 0,
-              comments: 0,
-              liked: false,
-            },
-            {
-              id: 2,
-              title: "Outdoor photography package",
-              category: "Make-up",
-              type: "Picture",
-              image: "/HomeImage.png",
-              date: "2025-01-02",
-              likes: 0,
-              comments: 0,
-              liked: false,
-            },
-            {
-              id: 3,
-              title: "Book us for your makeup session",
-              category: "Graphic design",
-              type: "Picture",
-              image: "/HomeImage.png",
-              date: "2025-01-01",
-              likes: 0,
-              comments: 0,
-              liked: false,
-            },
-            {
-              id: 4,
-              title: "Book us for your makeup session",
-              category: "Videography",
-              type: "Video",
-              image: "/HomeImage.png",
-              date: "2025-01-01",
+  const [posts, setPosts] = useState([
+    {
+      id: 1,
+      title: "Book us for your makeup session",
+      category: "Photography",
+      type: "Picture",
+      image: "/HomeImage.png",
+      date: "2025-01-01",
+      likes: 0,
+      comments: 0,
+      liked: false,
+    },
+    {
+      id: 2,
+      title: "Outdoor photography package",
+      category: "Make-up",
+      type: "Picture",
+      image: "/HomeImage.png",
+      date: "2025-01-02",
+      likes: 0,
+      comments: 0,
+      liked: false,
+    },
+    {
+      id: 3,
+      title: "Book us for your makeup session",
+      category: "Graphic design",
+      type: "Picture",
+      image: "/HomeImage.png",
+      date: "2025-01-01",
+      likes: 0,
+      comments: 0,
+      liked: false,
+    },
+    {
+      id: 4,
+      title: "Book us for your makeup session",
+      category: "Videography",
+      type: "Video",
+      image: "/HomeImage.png",
+      date: "2025-01-01",
+      liked: false,
+    },
+  ]);
 
-              liked: false,
-            },
-          ];
-    }
-    return [];
-  });
-
-  // Filters state with LocalStorage persistence
-  const [filters, setFilters] = useState(() => {
-    if (typeof window !== "undefined") {
-      const savedFilters = localStorage.getItem("postFilters");
-      return savedFilters
-        ? JSON.parse(savedFilters)
-        : { category: "All", type: "All" };
-    }
-    return { category: "All", type: "All" };
-  });
-
-  // Save posts and filters to LocalStorage on change
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("posts", JSON.stringify(posts));
-      localStorage.setItem("postFilters", JSON.stringify(filters));
-    }
-  }, [posts, filters]);
+  // Filters state without LocalStorage persistence
+  const [filters, setFilters] = useState({ category: "All", type: "All" });
 
   // Filter posts based on filters state
   const filterPosts = () => {
@@ -390,13 +405,6 @@ export const ClientProvider = (props) => {
         return post;
       });
     });
-  };
-
-  const refreshPosts = () => {
-    if (typeof window !== "undefined") {
-      const savedPosts = localStorage.getItem("posts");
-      setPosts(savedPosts ? JSON.parse(savedPosts) : []);
-    }
   };
 
   // feedback context
@@ -468,7 +476,6 @@ export const ClientProvider = (props) => {
     submitFeedback,
     feedbackId,
     setFeedbackId,
-    refreshPosts,
     total,
     subTotal,
     deliveryFee,

@@ -8,7 +8,7 @@ const EditModal = ({ appointment, onSave, onClose }) => {
   const [reason, setReason] = useState("");
 
   const handleSave = () => {
-    onSave(newDate, newTime, reason); // Pass edited details and reason to parent
+    onSave(newDate, newTime, reason);
   };
 
   return (

@@ -36,7 +36,7 @@ body {
 .custom-calendar .react-calendar__navigation {
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(90deg, #ff3d00 0%, #0369f0 100%);
+  background-color: black;
   color: white;
   padding: 0.5rem 1rem;
   font-weight: bold;
@@ -58,28 +58,28 @@ body {
 /* Calendar Days */
 .custom-calendar .react-calendar__tile {
   text-align: center;
-  padding: 0.75rem;
+  padding: 0.5rem;
   font-weight: medium;
   border-radius: 0.25rem;
   transition: background-color 0.2s ease-in-out;
 }
 
 .custom-calendar .react-calendar__tile:enabled:hover {
-  background-color: rgba(3, 105, 240, 0.2);
+  background-color: black;
   cursor: pointer;
 }
 
 .custom-calendar .react-calendar__tile--now {
   background-color: rgba(255, 61, 0, 0.2);
-  color: #ff3d00;
+  /* color: #ff3d00; */
 }
 
 .custom-calendar .react-calendar__tile--active {
-  background-color: #0369f0;
+  background-color: #000;
   color: white;
-  font-weight: bold;
+  font-weight: thin;
 }
 
 .custom-calendar .react-calendar__tile--active:hover {
-  background-color: #034db6;
+  background-color: #000;
 }

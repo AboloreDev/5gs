@@ -31,13 +31,13 @@ const Message = ({ message }) => {
 
   return (
     <div
-      className={`flex flex-col mb-6 p-2 rounded-lg shadow-md w-1/2 h-auto ${
+      className={`flex flex-col mb-6 p-1 rounded-lg shadow-md w-1/2 h-auto ${
         sender === "client"
           ? "translate-x-[100%] bg-gray-200 text-sm "
           : "self-start bg-gray-300 text-sm"
       }`}
     >
-      {text && <p className="text-black px-2 py-2 rounded-lg">{text}</p>}
+      {text && <p className="text-black px-1 py-1 rounded-lg">{text}</p>}
       {file && (
         <div className="p-2 rounded-lg">
           <Image

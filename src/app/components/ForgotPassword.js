@@ -17,11 +17,11 @@ const ForgotPassword = ({ onContinue }) => {
       className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center z-50"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white max-w-[400px] h-auto py-4 px-4 rounded-md shadow-lg flex flex-col justify-center items-start space-y-4">
-        <h2 className="text-2xl font-bold mb-2 tracking-widest text-center sm:text-xl">
+      <div className="bg-white max-w-[400px] h-auto py-2 px-4 rounded-md shadow-lg flex flex-col justify-center items-start space-y-4">
+        <h2 className="text-xl font-bold mb-2 tracking-widest text-center">
           Reset Password
         </h2>
-        <p className="text-lg text-[#1E1E1E] font-semibold  sm:text-base">
+        <p className="text-sm text-[#1E1E1E] font-semibold">
           Enter the email address associated with your account and we&apos;ll
           send you a link to reset your password.
         </p>
@@ -39,7 +39,7 @@ const ForgotPassword = ({ onContinue }) => {
         </Link>
         <button
           onClick={onContinue}
-          className="bg-orange-600 text-xl text-white font-semibold py-4 rounded-lg hover:scale-105 transition-transform w-full tracking-wide"
+          className="bg-orange-600 text-sm text-white font-semibold py-2 rounded-lg hover:scale-105 transition-transform w-full tracking-wide"
         >
           Continue
         </button>

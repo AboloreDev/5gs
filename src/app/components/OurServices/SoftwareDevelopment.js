@@ -12,7 +12,7 @@ const SoftwareDevelopment = () => {
         </p>
       </div>
 
-      <div className="relative bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-auto md:h-[350px] hidden md:flex items-center justify-start">
+      <div className="relative bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-auto md:h-[350px] hidden lg:flex items-center justify-start">
         <Image
           src="/graphicsDesign.png"
           alt="Software Development"
@@ -25,7 +25,7 @@ const SoftwareDevelopment = () => {
         </h3>
       </div>
       {/* Mobile view */}
-      <div className=" bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-[250px] md:hidden flex gap-6 items-center justify-center">
+      <div className=" bg-gradient-to-r from-[#1B78DE70] to-[#042C5482] rounded-2xl p-8 shadow-lg w-full h-[250px] lg:hidden flex gap-6 items-center justify-center">
         <Image
           src="/graphicsDesign.png"
           alt="Software Development"

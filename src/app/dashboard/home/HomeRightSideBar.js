@@ -5,65 +5,59 @@ import { ClientContext } from "@/app/context/ClientContext";
 const HomeRightSideBar = () => {
   const { filters, setFilters } = useContext(ClientContext);
 
+  // Handle category change for category buttons
   const handleCategoryChange = (category) => {
     setFilters((prev) => ({ ...prev, category }));
   };
 
+  // Handle type change for radio buttons
   const handleTypeChange = (type) => {
-    setFilters((prev) => {
-      const isTypeSelected = prev.type.includes(type);
-      return {
-        ...prev,
-        type: isTypeSelected
-          ? prev.type.filter((t) => t !== type)
-          : [...prev.type, type],
-      };
-    });
+    setFilters((prev) => ({ ...prev, type }));
   };
 
   return (
-    <div className="flex flex-col gap-2 justify-center space-y-5 py-2">
+    <div className="flex flex-col gap-2 justify-center space-y-6 py-2">
       {/* filter */}
-      <div className="bg-[#0D0D0D] text-[#8B8B8B] py-2 px-2 w-full  rounded-md">
+      <div className="bg-[#0D0D0D] text-sm text-[#8B8B8B] py-2 px-2 w-full rounded-md">
         Filter feed by...
       </div>
 
-      {/* radio buttons  */}
+      {/* radio buttons for Type */}
       <div className="flex flex-col gap-1 text-sm">
-        <h3 className="font-medium">Type:</h3>
+        <h3>Type:</h3>
         <label className="flex items-center gap-2">
           <input
-            type="checkbox"
-            checked={filters.type.includes("All")}
+            type="radio"
+            checked={filters.type === "All"}
             onChange={() => handleTypeChange("All")}
           />
           All
         </label>
         <label className="flex items-center gap-2">
           <input
-            type="checkbox"
-            checked={filters.type.includes("Picture")}
+            type="radio"
+            checked={filters.type === "Picture"}
             onChange={() => handleTypeChange("Picture")}
           />
           Picture
         </label>
         <label className="flex items-center gap-2">
           <input
-            type="checkbox"
-            checked={filters.type.includes("Video")}
+            type="radio"
+            checked={filters.type === "Video"}
             onChange={() => handleTypeChange("Video")}
           />
           Video
         </label>
       </div>
 
-      {/* category */}
-      <div className="flex flex-col gap-2 text-sm ">
+      {/* category selection */}
+      <div className="flex flex-col gap-2 text-sm">
         <h2 className="text-sm font-bold">Category:</h2>
         <div className="flex gap-4 flex-wrap text-sm">
           <button
             onClick={() => handleCategoryChange("All")}
-            className={` px-2 py-2 rounded-full text-sm bg-transparent border-2  ${
+            className={`px-2 py-1 rounded-full text-sm bg-transparent border-2 ${
               filters.category === "All" ? "border-primary-secondaryColor" : ""
             }`}
           >
@@ -71,7 +65,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Photography")}
-            className={`btn px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
+            className={`btn px-2 text-sm py-1 rounded-full bg-transparent border-2 ${
               filters.category === "Photography"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -81,7 +75,7 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Make-up")}
-            className={`btn px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
+            className={`btn px-2 text-sm py-1 rounded-full bg-transparent border-2 ${
               filters.category === "Make-up"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -91,17 +85,17 @@ const HomeRightSideBar = () => {
           </button>
           <button
             onClick={() => handleCategoryChange("Graphic design")}
-            className={` px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
+            className={`px-2 text-sm py-1 rounded-full bg-transparent border-2 ${
               filters.category === "Graphic design"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
             }`}
           >
-            Graphic design
+            Graphic Design
           </button>
           <button
             onClick={() => handleCategoryChange("Videography")}
-            className={` px-2 text-sm py-2 rounded-full bg-transparent border-2  ${
+            className={`px-2 text-sm py-1 rounded-full bg-transparent border-2 ${
               filters.category === "Videography"
                 ? "border-primary-secondaryColor"
                 : "bg-gray-200"
@@ -112,8 +106,8 @@ const HomeRightSideBar = () => {
         </div>
       </div>
 
-      {/* appointment Link */}
-      <div className="flex flex-col gap-4 text-sm border-2 px-3 py-3 w-full rounded-xl">
+      {/* Appointment Link */}
+      <div className="flex flex-col gap-4 text-[12px] border-2 px-3 py-3 w-full rounded-xl">
         <p>
           Experience fast attendance by scheduling ahead. Secure your spot and
           receive prompt attention upon arrival.

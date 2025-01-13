@@ -10,8 +10,7 @@ import Link from "next/link";
 
 const HomeContent = ({ post }) => {
   // context menu
-  const { toggleLike, filters, setFilters, refreshPosts } =
-    useContext(ClientContext);
+  const { toggleLike, filters, setFilters } = useContext(ClientContext);
   const [isClient, setIsClient] = useState(false);
 
   // Handle default filter logic
@@ -19,15 +18,8 @@ const HomeContent = ({ post }) => {
     setIsClient(true);
     if (!filters.category) {
       setFilters({ category: "All", type: ["All"] });
-      refreshPosts(); // Automatically refresh posts once on mount
     }
-  }, []);
-  // Check if the current post should be displayed based on filters
-  // const isPostVisible = () => {
-  //   if (!isClient) return false; // Prevent hydration mismatch by ensuring client-only rendering
-  //   if (filters.type.includes("All")) return true;
-  //   return filters.type.includes(post.type);
-  // };
+  }, [setFilters, filters.category]);
 
   const isPostVisible =
     filters.type.includes("All") || filters.type.includes(post.type);
@@ -37,14 +29,14 @@ const HomeContent = ({ post }) => {
   return (
     isPostVisible && (
       <div className="flex flex-col gap-2 px-10 py-8 h-screen">
-        <h1 className="font-bold text-xl flex items-center gap-2">
+        <h1 className="font-bold text-lg flex items-center gap-2 tracking-widest">
           5GS Admin{" "}
           <span>
-            <MdVerified className="" />
+            <MdVerified className="text-blue-700" />
           </span>
         </h1>
         <div className="flex justify-between items-center">
-          <h3 className="text-lg font-thin">{post.title}</h3>
+          <h3 className="text-sm font-thin">{post.title}</h3>
           <p className="text-sm text-gray-500">{post.date}</p>
         </div>
 
@@ -56,7 +48,7 @@ const HomeContent = ({ post }) => {
           height={600}
         />
 
-        <div className="flex justify-between items-center text-xl text-gray-500">
+        <div className="flex justify-between items-center text-sm text-gray-500">
           <div className="flex gap-1 items-center">
             <CiHeart
               className={`cursor-pointer ${post.liked ? "text-red-500" : ""}`}
@@ -64,11 +56,14 @@ const HomeContent = ({ post }) => {
             />
             <span>{post.likes}</span>
           </div>
-          <div className="flex gap-1 items-center">
-            <Link href={`/message?postId=${post.id}&image=${post.image}`}>
+          <div className="flex flex-row gap-1 items-center">
+            <Link
+              href={`/dashboard/messages?postId=${post.id}&image=${post.image}`}
+              className="flex items-center gap-1"
+            >
               <FaRegComment className="cursor-pointer" />
+              <p className="text-sm">Chat about this post</p>
             </Link>
-            <span>{post.comments}</span>
           </div>
         </div>
       </div>

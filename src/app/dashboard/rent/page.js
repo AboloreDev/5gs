@@ -16,18 +16,18 @@ const Rent = () => {
   return (
     <div className="">
       {/* Intro */}
-      <div className="border-b-2 py-2 px-2 ">
+      <div className="border-b-2 py-2 px-2">
         <h1 className="text-lg font-bold"> Rent</h1>
         <p className="text-gray-500 text-sm">Affordable gadgets for hiring</p>
       </div>
 
-      <div className="grid grid-cols-[auto_450px] p-2">
+      <div className="grid grid-cols-[auto_400px] p-2 h-screen">
         {/* Content */}
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-2">
           {/* searchbar */}
           <SearchBar />
           {/* products */}
-          <div className="grid grid-cols-2 place-items-center gap-4 overflow-y-auto h-[1200px] space-y-8">
+          <div className="grid grid-cols-2 place-items-center gap-4 overflow-y-auto h-[800px] overflow-hidden space-y-4">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <ProductsList product={product} key={product.id} />
@@ -44,11 +44,11 @@ const Rent = () => {
           </div>
         </div>
         {/* right side */}
-        <div className="border-l-2 px-2 py-4 flex flex-col space-y-6">
+        <div className="border-l-2 px-4 py-2 flex flex-col space-y-3 ">
           {/* <div className="flex flex-col space-y-4 px-4 py-3 h-full">  */}
-          <h2 className="text-xl font-bold">List</h2>
+          <h2 className="text-lg font-bold">List</h2>
           {/* Render items added to the list */}
-          <div className="flex flex-col space-y-6 overflow-y-auto">
+          <div className="flex flex-col space-y-4 overflow-y-auto">
             {list.length === 0 ? (
               <p className="text-center text-sm">
                 No Items in the List, Add a new Item to the list
@@ -60,7 +60,7 @@ const Rent = () => {
                   <p className="text-sm">{list.length}</p>
                 </div>
                 {/* Horizontal scrolling for the list */}
-                <div className="flex gap-2 overflow-x-auto">
+                <div className="flex gap-1 overflow-x-auto">
                   {list.map((item, index) => (
                     <ItemAddedToList item={item} key={item.id || index} />
                   ))}
@@ -71,7 +71,7 @@ const Rent = () => {
 
           {/* render items to cart */}
 
-          <div className="flex flex-col gap-2 overflow-y-auto h-[500px]">
+          <div className="flex flex-col gap-2 overflow-y-auto h-[300px]">
             {cart.length === 0 ? (
               <p className="flex justify-center items-center h-auto text-sm">
                 No Items in the Cart
@@ -86,7 +86,7 @@ const Rent = () => {
           </div>
 
           {/* checkout */}
-          <div className=" w-full sticky bottom-0 z-10 p-4">
+          <div className=" w-full sticky bottom-0 text-white z-10 p-4">
             {cart.length > 0 && <CheckOut />}
           </div>
         </div>

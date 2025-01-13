@@ -7,11 +7,11 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
 
   return (
     <div>
-      <div className=" flex justify-center flex-col items-center space-y-8 py-4">
+      <div className=" flex justify-center flex-col items-center space-y-2 py-2">
         {/* Tabs */}
-        <div className=" bg-white text-black px-3 py-3 rounded-full flex space-x-4">
+        <div className=" bg-white text-black px-2 py-2 rounded-full flex space-x-4">
           <button
-            className={`px-4 py-2 rounded-full shadow-md ${
+            className={`px-2 text-[12px] py-2 rounded-full shadow-md ${
               activeTab === "appointment"
                 ? "bg-primary-secondaryColor text-white "
                 : " hover:bg-primary-secondaryColor"
@@ -21,7 +21,7 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
             Book an Appointment
           </button>
           <button
-            className={`px-4 py-2 rounded-full shadow-md ${
+            className={`px-2 text-[12px] py-2 rounded-full shadow-md ${
               activeTab === "service"
                 ? "bg-primary-secondaryColor text-white "
                 : " hover:bg-primary-secondaryColor"
@@ -35,35 +35,34 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
         {/* Tab Content */}
         {activeTab === "appointment" && (
           <div className="flex items-center flex-col w-full justify-center gap-2">
-            <h2 className="text-sm font-thin mb-4">
+            <h2 className="text-[10px] font-thin mb-4">
               Provide the information below to proceed
             </h2>
             <form
               onSubmit={submitAppointment}
-              className="flex flex-col space-y-8 items-center justify-center"
+              className="flex flex-col space-y-4 items-center justify-center"
             >
               <div className="flex space-x-2 ">
                 {/* Date Picker */}
                 <div className="">
-                  <label htmlFor="date" className="block text-sm mb-1">
+                  <label htmlFor="date" className="block text-[12px] mb-1">
                     Select Date
                   </label>
                   <input
-                    type="date"
                     id="date"
-                    className="w-[300px] px-8 py-4  bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
+                    className="w-[300px] px-4 py-2  bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
                     placeholder="DD/MM/YYYY"
                   />
                 </div>
                 {/* Time Picker */}
                 <div className="">
-                  <label htmlFor="time" className="block text-sm mb-1">
+                  <label htmlFor="time" className="block text-[12px] mb-1">
                     Select Time
                   </label>
                   <input
-                    type="time"
+                    // type="time"
                     id="time"
-                    className="w-[300px] px-8 py-4  bg-white text-black p-2 rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
+                    className="w-[300px] px-4 py-2  bg-white text-black p-2 rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
                     placeholder="00:00"
                   />
                 </div>
@@ -74,14 +73,14 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
                 <textarea
                   id="message"
                   name="message"
-                  className="w-[600px] px-8 py-4  bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor h-[150px]"
+                  className="w-[600px] px-4 py-2  bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor h-[100px]"
                   placeholder="Short description of what the appointment is about..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-1/2   bg-primary-secondaryColor text-white py-2 rounded-lg shadow-md hover:bg-orange-600"
+                className="w-1/2 text-[12px]  bg-primary-secondaryColor text-white py-2 rounded-lg shadow-md hover:bg-orange-600"
               >
                 Submit
               </button>

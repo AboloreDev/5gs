@@ -13,21 +13,21 @@ const Navbar = () => {
   return (
     <nav className="max-w-[1200px] mx-auto p-4">
       {/* components */}
-      <div className="md:flex justify-between items-center hidden">
+      <div className="lg:flex justify-between items-center hidden">
         <Logo />
         <NavLinks />
         <Modes />
         <UsersLinks />
       </div>
 
-      <div className="relative md:hidden flex justify-between items-center text-white text-2xl">
+      {/* mobile menu */}
+      <div className="relative lg:hidden flex justify-between items-center text-white text-2xl">
         <Logo />
         <Modes />
         <button onClick={() => setMobileMenuOpen(true)}>
           <FiMenu />
         </button>
       </div>
-
       <div
         className={`absolute overflow-hidden bg-gray-500 transition-all duration-700 right-0 top-0 z-40 ${
           isMobileMenuOpen ? "w-1/2 min-h-screen opacity-90" : "w-0"
@@ -61,14 +61,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu
-      <div
-        className={` top-20 left-0 w-full bg-primary-darkBlue p-4 space-y-4 md:hidden transform transition-transform duration-300 ${
-          isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
-        }`}
-        // style={{ zIndex: 100 }}
-      ></div> */}
     </nav>
   );
 };

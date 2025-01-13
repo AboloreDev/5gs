@@ -10,8 +10,10 @@ const Feedback = () => {
     <div>
       {" "}
       <div className="border-b-2 py-2 ">
-        <h1 className="text-lg font-bold"> Feedback</h1>
-        <p className="text-gray-500 text-sm">Provide feedback on our Service</p>
+        <h1 className="text-sm font-bold"> Feedback</h1>
+        <p className="text-gray-500 text-[12px]">
+          Provide feedback on our Service
+        </p>
       </div>
       <div className="flex flex-col items-start mt-20 justify-center bg-black text-white p-6 rounded-lg max-w-[1000px] w-2/3 mx-auto  space-y-6">
         <div className="flex flex-col gap-1">
@@ -37,7 +39,7 @@ const Feedback = () => {
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Type your message here..."
-            className="w-full  h-[150px] p-2 rounded border border-gray-600 bg-gray-800 text-white mb-4"
+            className="w-2/3  h-[150px] p-2 rounded border border-gray-600 bg-gray-800 text-white mb-4"
           />
         </div>
 
@@ -60,7 +62,7 @@ const Feedback = () => {
         <button
           onClick={submitFeedback}
           disabled={rating === 0 || feedback.trim() === ""}
-          className={`w-full py-2 rounded bg-primary-secondaryColor text-white font-bold ${
+          className={`w-2/3 py-2 rounded bg-primary-secondaryColor text-white font-bold ${
             rating === 0 || feedback.trim() === ""
               ? "opacity-50 cursor-not-allowed"
               : "hover:bg-primary-secondaryColor"
