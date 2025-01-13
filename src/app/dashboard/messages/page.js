@@ -1,31 +1,15 @@
 "use client";
 
 import { ClientContext } from "@/app/context/ClientContext";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Message from "./Message";
 import MessageInput from "./MessageInput";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
 
 const Meessages = () => {
   // context menu
   const { messages, previewFiles, updateCaption, removeFile } =
     useContext(ClientContext);
-
-  const router = useRouter();
-
-  const searchParams = useSearchParams();
-  const [postId, setPostId] = useState(null);
-  const [image, setImage] = useState(null);
-
-  useEffect(() => {
-    const postId = searchParams.get("postId");
-    const image = searchParams.get("image");
-    if (postId && image) {
-      setPostId(postId);
-      setImage(image);
-    }
-  }, [searchParams]);
 
   return (
     <div className=" px-10 py-2 ">

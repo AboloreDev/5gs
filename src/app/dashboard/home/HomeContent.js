@@ -58,7 +58,7 @@ const HomeContent = ({ post }) => {
           </div>
           <div className="flex flex-row gap-1 items-center">
             <Link
-              href={`/dashboard/messages?postId=${post.id}&image=${post.image}`}
+              href={"/dashboard/messages"}
               className="flex items-center gap-1"
             >
               <FaRegComment className="cursor-pointer" />
