@@ -6,7 +6,7 @@ import { ClientContext } from "@/app/context/ClientContext";
 import { CiCalendarDate } from "react-icons/ci";
 
 const Notification = () => {
-  const { notifications, displayDetails, selectedNotification, closeModal } =
+  const { notifications, displayDetails, selectedNotification } =
     useContext(ClientContext);
 
   const [activeTab, setActiveTab] = useState("unread");
