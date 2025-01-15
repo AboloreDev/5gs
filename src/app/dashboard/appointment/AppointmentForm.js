@@ -2,29 +2,28 @@ import { ClientContext } from "@/app/context/ClientContext";
 import React, { useContext } from "react";
 
 const AppointmentForm = ({ activeTab, setActiveTab }) => {
-  // context menu
   const { submitAppointment } = useContext(ClientContext);
 
   return (
-    <div>
-      <div className=" flex justify-center flex-col items-center space-y-2 py-2">
+    <div className="px-4 py-4">
+      <div className="flex flex-col items-center space-y-4">
         {/* Tabs */}
-        <div className=" bg-white text-black px-2 py-2 rounded-full flex space-x-4">
+        <div className="bg-white text-black px-2 py-2 rounded-full flex space-x-4">
           <button
-            className={`px-2 text-[12px] py-2 rounded-full shadow-md ${
+            className={`px-4 py-2 text-sm rounded-full shadow-md ${
               activeTab === "appointment"
-                ? "bg-primary-secondaryColor text-white "
-                : " hover:bg-primary-secondaryColor"
+                ? "bg-primary-secondaryColor text-white"
+                : "hover:bg-primary-secondaryColor hover:text-white"
             }`}
             onClick={() => setActiveTab("appointment")}
           >
             Book an Appointment
           </button>
           <button
-            className={`px-2 text-[12px] py-2 rounded-full shadow-md ${
+            className={`px-4 py-2 text-sm rounded-full shadow-md ${
               activeTab === "service"
-                ? "bg-primary-secondaryColor text-white "
-                : " hover:bg-primary-secondaryColor"
+                ? "bg-primary-secondaryColor text-white"
+                : "hover:bg-primary-secondaryColor hover:text-white"
             }`}
             onClick={() => setActiveTab("service")}
           >
@@ -34,53 +33,55 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
 
         {/* Tab Content */}
         {activeTab === "appointment" && (
-          <div className="flex items-center flex-col w-full justify-center gap-2">
-            <h2 className="text-[10px] font-thin mb-4">
+          <div className="w-full max-w-md md:max-w-lg lg:max-w-xl flex flex-col items-center gap-4">
+            <h2 className="text-sm font-light text-gray-600">
               Provide the information below to proceed
             </h2>
             <form
               onSubmit={submitAppointment}
-              className="flex flex-col space-y-4 items-center justify-center"
+              className="flex flex-col space-y-4 w-full"
             >
-              <div className="flex space-x-2 ">
-                {/* Date Picker */}
-                <div className="">
-                  <label htmlFor="date" className="block text-[12px] mb-1">
+              {/* Date & Time Pickers */}
+              <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                <div className="flex-1">
+                  <label htmlFor="date" className="block text-sm mb-1">
                     Select Date
                   </label>
                   <input
                     id="date"
-                    className="w-[300px] px-4 py-2  bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
+                    className="w-full px-4 py-2 bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
                     placeholder="DD/MM/YYYY"
                   />
                 </div>
-                {/* Time Picker */}
-                <div className="">
-                  <label htmlFor="time" className="block text-[12px] mb-1">
+                <div className="flex-1">
+                  <label htmlFor="time" className="block text-sm mb-1">
                     Select Time
                   </label>
                   <input
-                    // type="time"
                     id="time"
-                    className="w-[300px] px-4 py-2  bg-white text-black p-2 rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
+                    className="w-full px-4 py-2 bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor"
                     placeholder="00:00"
                   />
                 </div>
               </div>
 
-              {/* textarea */}
-              <div className="w-full">
+              {/* Textarea */}
+              <div>
+                <label htmlFor="message" className="block text-sm mb-1">
+                  Short Description
+                </label>
                 <textarea
                   id="message"
                   name="message"
-                  className="w-[600px] px-4 py-2  bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor h-[100px]"
+                  className="w-full px-4 py-2 bg-white text-black rounded-lg outline-none focus:ring-2 focus:ring-primary-secondaryColor h-32"
                   placeholder="Short description of what the appointment is about..."
                 ></textarea>
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-1/2 text-[12px]  bg-primary-secondaryColor text-white py-2 rounded-lg shadow-md hover:bg-orange-600"
+                className="w-full md:w-1/2 bg-primary-secondaryColor text-white py-2 rounded-lg shadow-md hover:bg-orange-600"
               >
                 Submit
               </button>
@@ -89,11 +90,11 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
         )}
 
         {activeTab === "service" && (
-          <div className=" p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold text-gray-400">
+          <div className="w-full max-w-md p-4 bg-gray-100 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold text-gray-500">
               Book Our Service
             </h2>
-            <p className="text-gray-400">This section is currently empty.</p>
+            <p className="text-gray-500">This section is currently empty.</p>
           </div>
         )}
       </div>

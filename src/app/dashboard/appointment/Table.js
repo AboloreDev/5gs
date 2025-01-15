@@ -21,14 +21,14 @@ export function Table({ data, onEdit, onCancel }) {
   };
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-left table-auto border-collapse">
+    <div className="overflow-x-auto w-full">
+      <table className="w-full text-left table-auto border-collapse text-sm sm:text-base">
         <thead className="bg-gray-100 text-gray-700">
           <tr>
-            <th className="p-2 border text-sm">Appointment ID</th>
-            <th className="p-2 border text-sm">Date Booked For</th>
-            <th className="p-2 border text-sm">Status</th>
-            <th className="p-2 border text-sm">Actions</th>
+            <th className="p-2 border">Appointment ID</th>
+            <th className="p-2 border">Date Booked For</th>
+            <th className="p-2 border">Status</th>
+            <th className="p-2 border">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -39,11 +39,15 @@ export function Table({ data, onEdit, onCancel }) {
                 index % 2 === 0 ? "bg-white" : "bg-gray-50"
               } hover:bg-gray-100`}
             >
-              <td className="p-2 border text-[12px]">{appointment.id}</td>
-              <td className="p-2 border text-[12px]">{appointment.date}</td>
-              <td className="p-2 border text-[12px]">
+              <td className="p-2 border text-xs sm:text-sm">
+                {appointment.id}
+              </td>
+              <td className="p-2 border text-xs sm:text-sm">
+                {appointment.date}
+              </td>
+              <td className="p-2 border">
                 <span
-                  className={`px-2 py-1 rounded-full text-[12px] ${
+                  className={`px-2 py-1 rounded-full text-xs sm:text-sm ${
                     appointment.status === "Approved"
                       ? "bg-green-100 text-green-700"
                       : appointment.status === "Pending"
@@ -54,7 +58,7 @@ export function Table({ data, onEdit, onCancel }) {
                   {appointment.status}
                 </span>
               </td>
-              <td className="p-2 border space-x-2 text-[12px]">
+              <td className="p-2 border flex flex-col gap-2 sm:flex-row space-x-2 text-xs sm:text-sm">
                 <button
                   onClick={() => handleEdit(appointment.id)}
                   className="px-2 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
@@ -72,15 +76,6 @@ export function Table({ data, onEdit, onCancel }) {
           ))}
         </tbody>
       </table>
-
-      {/* Render Edit Modal */}
-      {selectedAppointment && (
-        <EditModal
-          appointment={selectedAppointment}
-          onSave={handleSaveEdit}
-          onClose={() => setSelectedAppointment(null)}
-        />
-      )}
     </div>
   );
 }

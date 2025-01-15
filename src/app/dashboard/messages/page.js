@@ -12,18 +12,22 @@ const Meessages = () => {
     useContext(ClientContext);
 
   return (
-    <div className=" px-10 py-2 ">
-      <div className="border-b-2 py-2 ">
-        <h1 className="text-[20px] font-bold"> Meessages</h1>
-        <p className="text-gray-500 text-[14px]">Chat directly with 5GS</p>
+    <div className="px-4 sm:px-6 md:px-8 py-2 h-screen flex w-full flex-col">
+      <div className="border-b-2 py-2 mt-10">
+        <h1 className="text-xl text-white sm:text-[20px] font-bold">
+          Messages
+        </h1>
+        <p className="text-gray-500 text-[12px] sm:text-[14px]">
+          Chat directly with 5GS
+        </p>
       </div>
 
-      <div className="flex flex-col space-y-4 overflow-y-auto h-[700px]">
-        {/* messages */}
-        <div className=" mt-10 flex-1 overflow-y-auto  p-2  space-y-4">
+      <div className="flex-1 overflow-y-auto pb-16">
+        {/* Messages */}
+        <div className="mt-10 flex-1 overflow-y-auto p-2 space-y-4">
           {messages.length === 0 ? (
-            <div className="flex justify-center items-center text-center  text-gray-500">
-              <p> Start a conversation with 5GS admin </p>
+            <div className="flex justify-center items-center text-center text-gray-500">
+              <p>Start a conversation with 5GS admin</p>
             </div>
           ) : (
             messages.map((message, index) => (
@@ -34,7 +38,7 @@ const Meessages = () => {
           {/* Preview Section */}
           <div className="p-4 flex flex-col text-black items-start space-y-2">
             {previewFiles.map((file, index) => (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className="flex flex-col items-center relative">
                 <button
                   onClick={() => removeFile(index)}
                   className="absolute top-0 right-0 bg-red-600 text-white px-2 py-1 rounded-full text-sm z-10 hover:bg-red-700"
@@ -51,7 +55,7 @@ const Meessages = () => {
                 <input
                   type="text"
                   placeholder="Add a caption (optional)"
-                  className="mt-2 p-2 rounded border w-full"
+                  className="mt-2 p-2 rounded border w-full sm:w-[90%] md:w-[80%] lg:w-[70%]"
                   value={file.caption}
                   onChange={(e) => updateCaption(index, e.target.value)}
                 />
@@ -62,7 +66,9 @@ const Meessages = () => {
           {/* message input */}
         </div>
       </div>
-      <div className=" w-full sticky z-10 p-2 -bottom-4">
+
+      {/* Fixed input container at the bottom */}
+      <div className="w-full sm:w-2/3 mx-auto fixed sm:bottom-10 bottom-0 rounded-xl left-0 right-0 z-50 bg-white p-2">
         <MessageInput />
       </div>
     </div>

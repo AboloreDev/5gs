@@ -8,7 +8,7 @@ const ItemAddedToList = ({ item }) => {
   const { id, name, image } = item;
   return (
     <div>
-      <div className="flex text-white flex-col gap-2 py-2 w-[250px] h-[250px] flex-shrink-0">
+      <div className="flex text-white flex-col gap-2 py-2 w-[150px] h-[150px] sm:w-[300px] sm:h-[300px] flex-shrink-0">
         <Image
           src={image}
           alt={`${name} image`}

@@ -9,7 +9,7 @@ const MessageInput = () => {
   return (
     <form
       onSubmit={sendMessage}
-      className="p-2 flex bg-white rounded-full items-center space-x-4 w-[80%] mx-auto"
+      className="p-2 flex  rounded-full items-center space-x-4 "
     >
       <label className="text-black mr-4 cursor-pointer">
         <FaPaperclip size={24} />

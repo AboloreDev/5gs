@@ -42,7 +42,7 @@ const AppointmentTable = () => {
           <div className="sticky top-0 z-10 bg-white p-2">
             <SearchAppointment onSearch={handleSearch} />
           </div>
-          <div className="overflow-y-auto h-screen">
+          <div className="overflow-y-auto">
             <Table
               data={paginatedAppointments}
               onEdit={editAppointment}
