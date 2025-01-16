@@ -4,8 +4,15 @@ import { ClientContext } from "@/app/context/ClientContext";
 import React, { useContext } from "react";
 
 const Feedback = () => {
-  const { rating, setRating, feedback, setFeedback, submitFeedback } =
-    useContext(ClientContext);
+  const {
+    rating,
+    setRating,
+    feedback,
+    setFeedback,
+    submitFeedback,
+    consent,
+    setConsent,
+  } = useContext(ClientContext);
 
   return (
     <div className="p-4 h-screen overflow-y-auto">
@@ -58,11 +65,25 @@ const Feedback = () => {
           </h5>
           <div className="flex gap-8">
             <div className="flex gap-2 items-center">
-              <input type="radio" name="Yes" className="w-4 h-4" />
+              <input
+                type="radio"
+                name="consent"
+                value="Yes"
+                checked={consent === "Yes"}
+                onChange={(e) => setConsent(e.target.value)}
+                className="w-4 h-4"
+              />
               <label>Yes</label>
             </div>
             <div className="flex gap-2 items-center">
-              <input type="radio" name="No" className="w-4 h-4" />
+              <input
+                type="radio"
+                name="consent"
+                value="No"
+                checked={consent === "No"}
+                onChange={(e) => setConsent(e.target.value)}
+                className="w-4 h-4"
+              />
               <label>No</label>
             </div>
           </div>
@@ -71,9 +92,9 @@ const Feedback = () => {
         {/* Submit Button */}
         <button
           onClick={submitFeedback}
-          disabled={rating === 0 || feedback.trim() === ""}
+          disabled={rating === 0 || feedback.trim() === "" || !consent}
           className={`w-full sm:w-2/3 py-2 rounded bg-primary-secondaryColor text-white font-bold ${
-            rating === 0 || feedback.trim() === ""
+            rating === 0 || feedback.trim() === "" || !consent
               ? "opacity-50 cursor-not-allowed"
               : "hover:bg-primary-secondaryColor"
           }`}

@@ -47,7 +47,7 @@ const Rent = () => {
         {/* Products Section */}
         <div className="flex flex-col space-y-2">
           <SearchBar />
-          <div className="grid grid-cols-2 gap-4 overflow-y-auto h-screen space-y-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 overflow-y-auto h-[750px] space-y-4 sm:grid-cols-2">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <ProductsList product={product} key={product.id} />
@@ -124,7 +124,7 @@ const Rent = () => {
         {/* Products Section */}
         <div className="flex flex-col space-y-2">
           <SearchBar />
-          <div className="grid grid-cols-2 gap-4 overflow-y-auto h-screen space-y-4">
+          <div className="grid grid-cols-2 gap-4 overflow-y-auto h-[700px] space-y-4">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <ProductsList product={product} key={product.id} />

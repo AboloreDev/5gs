@@ -32,7 +32,7 @@ const ProductsList = ({ product }) => {
         </p>
       </div>
       {/* buttons */}
-      <div className="flex flex-col gap-2 w-full sm:w-1/2">
+      <div className="flex flex-col gap-2 w-full sm:w-2/3">
         <button
           onClick={() => handleAddToList(product)}
           className={`bg-white px-2 py-1 text-black text-center text-sm ${

@@ -15,9 +15,9 @@ export default function HomePage() {
   return (
     <div className="text-white  h-screen overflow-y-auto">
       {/* Desktop Layout (1024px and above) */}
-      <div className="hidden lg:grid lg:grid-cols-[auto_350px] p-2 h-screen">
+      <div className="hidden lg:grid lg:grid-cols-[auto_350px] p-2">
         {/* Posts */}
-        <div className="overflow-y-auto overflow-hidden h-screen">
+        <div className="overflow-y-auto overflow-hidden h-[800px]">
           <div className="border-b-2 border-gray-600 py-2 px-2 sticky top-0 bg-black z-10">
             <h1 className="text-lg font-bold">Home</h1>
             <p className="text-gray-500 text-sm">Explore our products</p>
@@ -64,7 +64,7 @@ export default function HomePage() {
         )}
 
         {/* Posts Section */}
-        <div className="overflow-y-auto overflow-hidden h-[calc(100vh-80px)] px-2">
+        <div className="overflow-y-auto overflow-hidden h-[700px] px-2">
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}

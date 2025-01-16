@@ -424,13 +424,21 @@ export const ClientProvider = (props) => {
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [feedbackId, setFeedbackId] = useState(null);
+  const [consent, setConsent] = useState("");
 
   // Submit feedback
   const submitFeedback = (event) => {
     event.preventDefault();
-    setFeedbackId(Date.now());
-    setFeedback("Thank you for your feedback!");
-    setTimeout(() => setFeedback(""), 2000);
+    if (rating > 0 && feedback.trim() && consent) {
+      console.log({
+        rating,
+        feedback,
+        consent,
+      });
+      alert("Thank you for your feedback!");
+    } else {
+      alert("Please fill in all fields before submitting.");
+    }
   };
 
   // Context value
@@ -489,9 +497,12 @@ export const ClientProvider = (props) => {
     submitFeedback,
     feedbackId,
     setFeedbackId,
+    setFeedback,
     total,
     subTotal,
     deliveryFee,
+    consent,
+    setConsent,
   };
 
   return (

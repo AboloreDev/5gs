@@ -45,7 +45,7 @@ export default function DashboardLayout({ children }) {
 
       {/* Mobile Sidebar */}
       {isMobile && (
-        <div className="fixed bg-black">
+        <div className="relative h-[100vh] overflow-y-auto bg-black">
           <div className="absolute">
             <Sidebar
               isOpen={isOpen}
@@ -53,7 +53,7 @@ export default function DashboardLayout({ children }) {
               isMobile={isMobile}
             />
           </div>
-          <main>
+          <main className="min-h-screen overflow-y-auto">
             <ClientProvider>{children}</ClientProvider>
           </main>
         </div>
