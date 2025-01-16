@@ -3,6 +3,7 @@
 import React, { useContext, useState } from "react";
 import { ClientContext } from "@/app/context/ClientContext";
 import { CiCalendarDate } from "react-icons/ci";
+import { BsX } from "react-icons/bs";
 
 const Notification = () => {
   const { notifications, displayDetails, selectedNotification } =
@@ -152,12 +153,14 @@ const Notification = () => {
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start">
             <div className="bg-white w-full h-full p-6 overflow-y-auto">
-              <button
-                className="text-black text-sm mb-4"
+              <div
+                className="text-black flex justify-end items-end mb-20"
                 onClick={closeNotification}
               >
-                Close
-              </button>
+                <button>
+                  <BsX size={40} />
+                </button>
+              </div>
               {selectedNotification && (
                 <>
                   <h2 className="text-xl font-bold mb-2">

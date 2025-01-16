@@ -39,17 +39,17 @@ const AppointmentTable = () => {
         </p>
       ) : (
         <div className="bg-white">
-          <div className="sticky top-0 z-10 bg-white p-2">
+          <div className="">
             <SearchAppointment onSearch={handleSearch} />
           </div>
-          <div className="overflow-y-auto">
+          <div className="">
             <Table
               data={paginatedAppointments}
               onEdit={editAppointment}
               onCancel={cancelAppointment}
             />
           </div>
-          <div className="sticky bottom-0 z-10 p-2">
+          <div className="">
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

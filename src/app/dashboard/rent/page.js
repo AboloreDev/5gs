@@ -19,7 +19,7 @@ const Rent = () => {
   return (
     <div className="h-screen overflow-y-auto">
       {/* Header */}
-      <div className="border-b-2 py-2 px-2 sm:mt-0 sticky top-0 z-10 bg-black mt-10">
+      <div className="border-b-2 py-2 px-2 sm:mt-0 mt-10 ">
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-lg font-bold text-white">Rent</h1>
