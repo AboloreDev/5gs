@@ -62,10 +62,10 @@ export default function Page() {
     <div className=" bg-bgImage bg-no-repeat bg-cover">
       <div className="flex justify-center items-center h-screen ">
         <form
-          className="flex flex-col space-y-12 max-w-[500px] px-4 py-2 h-auto  mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
+          className="flex flex-col space-y-12 w-[300px] md:w-[500px]  px-4 py-2 h-auto  mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
           onSubmit={formik.handleSubmit}
         >
-          <div className="text-xl text-center">Sign in</div>
+          <div className="text-xl text-center font-bold">Sign in</div>
 
           <div className="flex flex-col space-y-4 text-sm">
             {/* Email Field */}
@@ -134,10 +134,10 @@ export default function Page() {
             </div>
 
             {/* Continue with Google */}
-            <div className="flex justify-center items-center space-x-4">
-              <hr className="w-[100px]" />
-              <p>or continue with</p>
-              <hr className="w-[100px]" />
+            <div className="flex justify-center items-center space-x-2">
+              <hr className="w-[90px]" />
+              <p className="text-[10px]">or continue with</p>
+              <hr className="w-[90px]" />
             </div>
 
             <button className="flex justify-center items-center text-center border-2 w-1/2 mx-auto p-2 rounded-lg bg-transparent text-white font-thin relative sm:w-full">

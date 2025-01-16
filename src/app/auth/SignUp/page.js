@@ -51,17 +51,19 @@ const SignUpPage = () => {
 
   return (
     <div className=" bg-bgImage bg-no-repeat bg-cover bg-center">
-      <div className="flex justify-center items-center h-screen">
-        <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-10 py-2 space-y-2 w-[500px] h-[800px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-6 py-2 space-y-2 w-[350px] sm:w-[500px] h-[650px] sm:h-[800px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
           <h2 className="text-xl font-semibold text-center mb-4">Register</h2>
 
           <form
             onSubmit={formik.handleSubmit}
-            className="w-full flex flex-col space-y-2"
+            className="w-full flex text-sm sm:text-lg lg:text-xl flex-col space-y-2"
           >
             {/* Name Field */}
             <div className="flex flex-col space-y-2">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name" className="text-sm">
+                Name
+              </label>
               <div className="relative mb-4">
                 <input
                   type="text"
@@ -206,10 +208,10 @@ const SignUpPage = () => {
             </button>
 
             {/* Continue with Google */}
-            <div className="flex text-xl justify-center items-center space-x-4">
-              <hr className="w-[100px]" />
-              <p>or continue with</p>
-              <hr className="w-[100px]" />
+            <div className="flex text-sm sm:text-lg justify-center items-center space-x-4">
+              <hr className="w-[90px]" />
+              <p className="text-[12px]">or continue with</p>
+              <hr className="w-[90px]" />
             </div>
 
             <div className="flex items-center justify-center mb-4">
@@ -227,7 +229,7 @@ const SignUpPage = () => {
             </p>
 
             {/* Footer */}
-            <div className="text-gray-300 text-sm text-center">
+            <div className="text-gray-300 text-[12px] text-center">
               Copyright 2024, 5GS Inc.
             </div>
           </form>
