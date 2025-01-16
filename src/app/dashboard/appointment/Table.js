@@ -8,16 +8,22 @@ export function Table({ data, onEdit, onCancel }) {
 
   //use state
   const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   // modal edit
   const handleEdit = (id) => {
     const appointment = data.find((appointment) => appointment.id === id);
+    setIsOpenModal(true);
     setSelectedAppointment(appointment);
+    if (appointment.status === "Canceled") {
+      alert("You cannot edit a canceled appointment.");
+      return;
+    }
   };
 
   const handleSaveEdit = (newDate, newTime, reason) => {
     onEdit(selectedAppointment.id, newDate, newTime, reason);
-    setSelectedAppointment(null); // Close modal
+    setSelectedAppointment(null);
   };
 
   return (
@@ -61,12 +67,14 @@ export function Table({ data, onEdit, onCancel }) {
               <td className="p-2 border flex flex-col gap-2 sm:flex-row space-x-2 text-xs sm:text-sm">
                 <button
                   onClick={() => handleEdit(appointment.id)}
+                  disabled={appointment.status === "Canceled"}
                   className="px-2 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => onCancel(appointment.id)}
+                  disabled={appointment.status === "Canceled"}
                   className="px-2 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600"
                 >
                   Cancel
@@ -76,6 +84,13 @@ export function Table({ data, onEdit, onCancel }) {
           ))}
         </tbody>
       </table>
+      {isOpenModal && (
+        <EditModal
+          appointment={selectedAppointment}
+          onSave={handleSaveEdit}
+          onClose={() => setIsOpenModal(false)}
+        />
+      )}
     </div>
   );
 }

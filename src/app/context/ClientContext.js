@@ -274,6 +274,7 @@ export const ClientProvider = (props) => {
   // Edit appointment function
   function editAppointment(id, newDate, newTime, reason) {
     confirm(`Edit appointment: ${id}`);
+
     setAppointments(
       appointments.map((appointment) =>
         appointment.id === id
@@ -285,14 +286,26 @@ export const ClientProvider = (props) => {
 
   // Cancel appointment function
   function cancelAppointment(id) {
-    confirm(`Cancel appointment: ${id}`);
-    setAppointments(
-      appointments.map((appointment) =>
-        appointment.id === id
-          ? { ...appointment, status: "Canceled" }
-          : appointment
-      )
+    const appointment = appointments.find((a) => a.id === id);
+
+    if (appointment.status === "Canceled") {
+      alert("This appointment has already been canceled.");
+      return;
+    }
+
+    const userConfirmed = confirm(
+      `Are you sure you want to cancel appointment: ${id}?`
     );
+
+    if (userConfirmed) {
+      setAppointments(
+        appointments.map((appointment) =>
+          appointment.id === id
+            ? { ...appointment, status: "Canceled" }
+            : appointment
+        )
+      );
+    }
   }
 
   // Notification

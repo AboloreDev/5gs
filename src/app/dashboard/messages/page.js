@@ -7,12 +7,12 @@ import MessageInput from "./MessageInput";
 import Image from "next/image";
 
 const Meessages = () => {
-  // context menu
   const { messages, previewFiles, updateCaption, removeFile } =
     useContext(ClientContext);
 
   return (
-    <div className="px-4 sm:px-6 md:px-8 py-2 h-screen flex w-full flex-col">
+    <div className="px-4 sm:px-6 md:px-8 py-2 h-screen flex flex-col">
+      {/* Header */}
       <div className="border-b-2 py-2 mt-10">
         <h1 className="text-xl text-white sm:text-[20px] font-bold">
           Messages
@@ -22,8 +22,8 @@ const Meessages = () => {
         </p>
       </div>
 
+      {/* Messages */}
       <div className="flex-1 overflow-y-auto pb-16">
-        {/* Messages */}
         <div className="mt-10 flex-1 overflow-y-auto p-2 space-y-4">
           {messages.length === 0 ? (
             <div className="flex justify-center items-center text-center text-gray-500">
@@ -62,14 +62,14 @@ const Meessages = () => {
               </div>
             ))}
           </div>
-
-          {/* message input */}
         </div>
       </div>
 
-      {/* Fixed input container at the bottom */}
-      <div className="w-full sm:w-2/3 mx-auto fixed sm:bottom-10 bottom-0 rounded-xl left-0 right-0 z-50 bg-white p-2">
-        <MessageInput />
+      {/* Centered Message Input */}
+      <div className="flex justify-center mt-4">
+        <div className="w-full sm:w-2/3 lg:w-1/2">
+          <MessageInput />
+        </div>
       </div>
     </div>
   );

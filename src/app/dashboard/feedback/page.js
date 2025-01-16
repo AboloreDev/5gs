@@ -8,9 +8,9 @@ const Feedback = () => {
     useContext(ClientContext);
 
   return (
-    <div className="p-4 h-screen">
+    <div className="p-4 h-screen overflow-y-auto">
       {/* Title Section */}
-      <div className="border-b-2 py-2 mt-10">
+      <div className="border-b-2 py-2 mt-10 sticky top-0">
         <h1 className="text-xl text-white font-bold">Feedback</h1>
         <p className="text-gray-500 text-[12px]">
           Provide feedback on our Service

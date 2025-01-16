@@ -91,6 +91,14 @@ export default function Sidebar({ isOpen, toggleSidebar, isMobile }) {
             <MdClose size={24} />
           </div>
 
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="mb-10"
+          />
+
           <ul className="mt-20 space-y-6">
             {mobileLinks.map((link) => (
               <li key={link.href}>
@@ -111,7 +119,10 @@ export default function Sidebar({ isOpen, toggleSidebar, isMobile }) {
           </ul>
 
           {/* Logout */}
-          <div className="flex items-center gap-4 mt-20 bg-primary-secondaryColor px-4 py-2 rounded-xl">
+          <div
+            onClick={handleLogout}
+            className="flex items-center gap-4 mt-20 bg-primary-secondaryColor px-4 py-2 rounded-xl"
+          >
             <MdLogout size={20} />
             <p>Logout</p>
           </div>
@@ -169,15 +180,25 @@ export default function Sidebar({ isOpen, toggleSidebar, isMobile }) {
         </ul>
 
         {/* Logout Button */}
-        <div
-          onClick={handleLogout}
-          className={`mt-20 flex items-center gap-3 bg-[#FF3D00] px-6 py-2 rounded-xl cursor-pointer ${
-            isOpen ? "justify-start" : "justify-center"
-          }`}
-        >
-          <MdLogout size={20} />
-          {isOpen && <span>Logout</span>}
-        </div>
+        {isOpen ? (
+          <div
+            onClick={handleLogout}
+            className={`mt-20 flex items-center gap-3 bg-[#FF3D00] text-white px-6 py-2 rounded-xl cursor-pointer ${
+              isOpen ? "justify-start" : "justify-center"
+            }`}
+          >
+            <MdLogout size={20} />
+            {isOpen && <span>Logout</span>}
+          </div>
+        ) : (
+          <div
+            onClick={handleLogout}
+            className="text-white bg-primary-secondaryColor mt-20 px-4 py-2 rounded-xl"
+          >
+            {" "}
+            <MdLogout size={20} />
+          </div>
+        )}
       </nav>
     </>
   );

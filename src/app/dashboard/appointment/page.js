@@ -6,13 +6,13 @@ const Appointment = () => {
   return (
     <div className="h-screen overflow-y-auto">
       {/* Header Section */}
-      <div className="border-b-2 py-2 px-4 sticky top-0 mt-10 bg-black z-40">
+      <div className="border-b-2 py-2 px-4 sticky top-0 mt-10 bg-black">
         <h1 className=" font-bol text-white text-xl">Appointment</h1>
         <p className="text-gray-500 text-sm">Visit us at our office</p>
       </div>
 
       {/* Main Layout */}
-      <div className="p-1 sm:p-4 flex flex-col xl:grid xl:grid-cols-[auto_400px] gap-4 min-h-screen overflow-auto">
+      <div className="p-1 sm:p-4 flex flex-col xl:grid xl:grid-cols-[auto_400px] gap-4 h-[750px] md:h-screen overflow-y-auto">
         {/* Content Section */}
         <AppointmentContent />
 

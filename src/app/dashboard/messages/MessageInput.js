@@ -6,19 +6,21 @@ import { AiOutlineSend } from "react-icons/ai";
 const MessageInput = () => {
   const { uploadFile, sendMessage, newMessage, setNewMessage, previewFiles } =
     useContext(ClientContext);
+
   return (
     <form
       onSubmit={sendMessage}
-      className="p-2 flex  rounded-full items-center space-x-4 "
+      className="p-4 flex rounded-lg bg-white items-center space-x-4 shadow-md"
     >
-      <label className="text-black mr-4 cursor-pointer">
+      <label className="text-gray-500 cursor-pointer">
         <FaPaperclip size={24} />
         <input type="file" multiple className="hidden" onChange={uploadFile} />
       </label>
-      {/* input field */}
+
+      {/* Input Field */}
       <input
         type="text"
-        className="flex-1 rounded-lg text-[20px] font-thin text-black outline-none"
+        className="flex-1 rounded-lg text-[16px] sm:text-[20px] font-thin text-black outline-none border p-2"
         placeholder={
           previewFiles.length > 0
             ? "Add a caption (optional)"
@@ -27,7 +29,9 @@ const MessageInput = () => {
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
       />
-      <button className="ml-4 text-black hover:text-orange-600" type="submit">
+
+      {/* Send Button */}
+      <button className="text-gray-500 hover:text-orange-600" type="submit">
         <AiOutlineSend size={24} />
       </button>
     </form>

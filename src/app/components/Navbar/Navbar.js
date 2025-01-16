@@ -29,19 +29,19 @@ const Navbar = () => {
         </button>
       </div>
       <div
-        className={`absolute overflow-hidden bg-gray-500 transition-all duration-700 right-0 top-0 z-40 ${
+        className={`absolute overflow-hidden bg-primary-darkBlue opacity-80  transition-all duration-700 right-0 top-0 z-40 ${
           isMobileMenuOpen ? "w-1/2 min-h-screen opacity-90" : "w-0"
         }`}
       >
         <div className="flex flex-col space-y-8">
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="text-4xl px-4 py-4 font-bold flex justify-end"
+            className="text-4xl px-4 text-white py-4 font-bold flex justify-end"
           >
             <FiX />
           </button>
 
-          <div className="flex flex-col space-y-4 text-lg items-center text-black border-b-2">
+          <div className="flex flex-col space-y-4 text-lg items-center text-white border-b-2">
             <div>Home</div>
             <div>About Us</div>
             <div>Services</div>
@@ -49,7 +49,7 @@ const Navbar = () => {
             <div>Get in touch</div>
           </div>
 
-          <div className="flex flex-col space-y-4 text-sm items-center text-black">
+          <div className="flex flex-col space-y-4 text-sm items-center text-white">
             <Link href="/auth/SignIn" onClick={() => setMobileMenuOpen(false)}>
               <button>Sign In</button>
             </Link>

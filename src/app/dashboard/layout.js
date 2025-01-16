@@ -46,15 +46,16 @@ export default function DashboardLayout({ children }) {
       {/* Mobile Sidebar */}
       {isMobile && (
         <div className="fixed bg-black">
-          <div className="absolute ">
+          <div className="absolute">
             <Sidebar
               isOpen={isOpen}
               toggleSidebar={toggleSidebar}
               isMobile={isMobile}
             />
           </div>
-
-          <ClientProvider>{children}</ClientProvider>
+          <main>
+            <ClientProvider>{children}</ClientProvider>
+          </main>
         </div>
       )}
     </>
