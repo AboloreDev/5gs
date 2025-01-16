@@ -64,7 +64,7 @@ export default function HomePage() {
         )}
 
         {/* Posts Section */}
-        <div className="overflow-y-auto overflow-hidden h-[600px] px-2">
+        <div className="overflow-y-auto overflow-hidden h-[550px] px-2">
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}
