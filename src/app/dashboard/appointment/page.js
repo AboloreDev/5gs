@@ -12,7 +12,7 @@ const Appointment = () => {
       </div>
 
       {/* Main Layout */}
-      <div className="p-1 sm:p-4 flex flex-col xl:grid xl:grid-cols-[auto_400px] gap-4 h-[750px] md:h-screen overflow-y-auto">
+      <div className="p-1 sm:p-4 flex flex-col xl:grid xl:grid-cols-[auto_400px] gap-4 h-[650px] md:h-screen overflow-y-auto">
         {/* Content Section */}
         <AppointmentContent />
 

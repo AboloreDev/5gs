@@ -11,7 +11,7 @@ const Meessages = () => {
     useContext(ClientContext);
 
   return (
-    <div className="px-4 sm:px-6 md:px-8 py-2 h-[850px] overflow-y-auto flex flex-col">
+    <div className="px-4 sm:px-6 md:px-8 py-2 h-[800px] overflow-y-auto flex flex-col">
       {/* Header */}
       <div className="border-b-2 py-2 mt-10">
         <h1 className="text-xl text-white sm:text-[20px] font-bold">
@@ -66,7 +66,7 @@ const Meessages = () => {
       </div>
 
       {/* Centered Message Input */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mb-14 sm:mb-10">
         <div className="w-full">
           <MessageInput />
         </div>
