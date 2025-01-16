@@ -374,15 +374,6 @@ export const ClientProvider = (props) => {
       comments: 0,
       liked: false,
     },
-    {
-      id: 4,
-      title: "Book us for your makeup session",
-      category: "Videography",
-      type: "Video",
-      image: "/HomeImage.png",
-      date: "2025-01-01",
-      liked: false,
-    },
   ]);
 
   // Filters state without LocalStorage persistence

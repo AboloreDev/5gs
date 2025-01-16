@@ -66,7 +66,7 @@ const Meessages = () => {
       </div>
 
       {/* Centered Message Input */}
-      <div className="flex justify-center mb-14 sm:mb-10">
+      <div className="flex justify-center mb-20 sm:mb-10">
         <div className="w-full">
           <MessageInput />
         </div>
