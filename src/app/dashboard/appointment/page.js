@@ -6,7 +6,7 @@ const Appointment = () => {
   return (
     <div className="h-screen overflow-y-auto">
       {/* Header Section */}
-      <div className="border-b-2 py-2 px-4 mt-10 bg-black">
+      <div className="border-b-2 py-2 px-4 mt-10 bg-black sticky">
         <h1 className=" font-bold text-white text-lg">Appointment</h1>
         <p className="text-gray-500 text-sm">Visit us at our office</p>
       </div>

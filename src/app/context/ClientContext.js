@@ -223,51 +223,54 @@ export const ClientProvider = (props) => {
   // Submit appointment function
   const submitAppointment = (e) => {
     e.preventDefault();
-    if (!e.target.date.value || !e.target.time.value || !e.target.message.value)
+
+    if (
+      !e.target.date.value ||
+      !e.target.time.value ||
+      !e.target.message.value
+    ) {
+      alert("Please fill in all fields.");
       return;
+    }
+
     const date = e.target.date.value;
     const time = e.target.time.value;
     const message = e.target.message.value;
+
+    // Validate date and time
     const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
     const timeRegex = /^\d{2}:\d{2}$/;
+
     if (!dateRegex.test(date)) {
       alert("Please enter a valid date in the format DD/MM/YYYY.");
       return;
     }
+
     if (!timeRegex.test(time)) {
       alert("Please enter a valid time in the format HH:MM.");
       return;
     }
+
     if (!message.trim()) {
       alert("Please provide a description for the appointment.");
       return;
     }
 
-    // Get current date and time
-    const now = new Date();
-    const [day, month, year] = date
-      .split("/")
-      .map((part) => parseInt(part, 10));
-    const [hour, minute] = time.split(":").map((part) => parseInt(part, 10));
-
-    const selectedDate = new Date(year, month - 1, day, hour, minute);
-
-    const timeDifference = selectedDate.getTime() - now.getTime();
-    const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
-
-    if (timeDifference < oneDayInMilliseconds) {
-      alert("Please pick a date and time at least 24 hours from now.");
-      return;
-    }
-
+    // Generate a random ID
+    const randomId = `5GS${Math.floor(Math.random() * 1000000)
+      .toString()
+      .padStart(6, "0")}`;
     const newAppointment = {
-      id: `5GS${new Date().getDate()}`,
-      date: `${date}`,
+      id: randomId,
+      date,
       message,
       status: "Pending",
     };
 
+    // Add the appointment
     addAppointment(newAppointment);
+
+    // Reset the form
     e.target.reset();
   };
 
