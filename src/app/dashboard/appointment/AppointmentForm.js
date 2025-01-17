@@ -81,7 +81,7 @@ const AppointmentForm = ({ activeTab, setActiveTab }) => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full md:w-1/2 bg-primary-secondaryColor text-white py-2 rounded-lg shadow-md hover:bg-orange-600"
+                className="w-full bg-primary-secondaryColor text-white py-2 rounded-lg shadow-md hover:bg-orange-600"
               >
                 Submit
               </button>

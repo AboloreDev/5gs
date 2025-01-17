@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import { ClientProvider } from "../context/ClientContext";
 import Sidebar from "./components/Sidebar";
 
@@ -12,7 +11,6 @@ export default function DashboardLayout({ children }) {
         <div className="w-60px md:w-100px p-2 flex justify-start md:justify-center">
           <Image src="/logo.png" alt="Logo" width={100} height={100} />
         </div>
-        {/* menu */}
         <Sidebar />
       </div>
       {/* right */}

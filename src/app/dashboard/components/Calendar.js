@@ -8,14 +8,14 @@ const CustomCalendar = () => {
   const [value, setValue] = useState(new Date());
 
   return (
-    <div className="flex justify-center items-center ">
-      <div className="bg-white rounded-lg shadow-lg  ">
+    <div className="flex justify-center items-center p-2">
+      <div className=" rounded-lg shadow-lg w-[280px] h-[200px] ">
         <Calendar
           onChange={setValue}
           value={value}
           className="custom-calendar"
         />
-        <p className="text-center mt-4 text-sm text-gray-700">
+        <p className="text-center mt-4 text-sm text-white">
           Selected Date:{" "}
           <span className="font-bold">{value.toDateString()}</span>
         </p>

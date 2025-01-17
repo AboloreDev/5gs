@@ -24,6 +24,7 @@ export default {
       },
     },
     plugins: [
+      require("tailwind-scrollbar-hide"),
       function ({ addUtilities }) {
         addUtilities({
           ".text-gradient": {

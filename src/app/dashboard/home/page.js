@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="p-4 flex gap-4 flex-col md:flex-row min-h-screen">
       {/* Large Screen Layout */}
-      <div className="hidden lg:block lg:w-2/3 bg-black overflow-y-auto max-h-screen">
+      <div className="hidden lg:block lg:w-2/3 bg-black overflow-y-auto overflow-hidden max-h-screen">
         <div className="text-white p-4 border-b-2 border-gray-600">
           <h1 className="text-lg font-bold">Home</h1>
           <p className="text-gray-400">Explore our products</p>
@@ -37,7 +37,7 @@ export default function HomePage() {
       )}
 
       {/* Posts Section */}
-      <div className="block w-full lg:hidden bg-black overflow-y-auto max-h-screen">
+      <div className="block w-full lg:hidden bg-black overflow-y-auto overflow-hidden max-h-screen">
         <div className="flex justify-between items-center border-b-2 border-gray-600">
           <div className="text-white">
             <h1 className="text-lg font-bold">Home</h1>

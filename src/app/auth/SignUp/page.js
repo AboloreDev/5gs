@@ -50,9 +50,9 @@ const SignUpPage = () => {
   });
 
   return (
-    <div className=" bg-bgImage bg-no-repeat bg-cover bg-center">
+    <div className="sticky bg-bgImage bg-no-repeat bg-cover bg-center">
       <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-6 py-2 space-y-2 w-[350px] sm:w-[500px] h-[650px] sm:h-[800px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
+        <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-6 py-2 space-y-2 w-[350px] sm:w-[500px] h-[600px] sm:h-[700px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
           <h2 className="text-xl font-semibold text-center mb-4">Register</h2>
 
           <form

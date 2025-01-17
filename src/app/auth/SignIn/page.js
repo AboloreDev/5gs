@@ -59,7 +59,7 @@ export default function Page() {
   }
 
   return (
-    <div className=" bg-bgImage bg-no-repeat bg-cover">
+    <div className=" bg-bgImage bg-no-repeat bg-cover sticky">
       <div className="flex justify-center items-center h-screen ">
         <form
           className="flex flex-col space-y-12 w-[300px] md:w-[500px]  px-4 py-2 h-auto  mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
