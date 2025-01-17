@@ -4,67 +4,61 @@ import { useContext, useState } from "react";
 import { ClientContext } from "@/app/context/ClientContext";
 import HomeContent from "./HomeContent";
 import HomeRightSideBar from "./HomeRightSideBar";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // Import icons
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function HomePage() {
   const { filterPosts } = useContext(ClientContext);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to control dropdown visibility
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const filteredPosts = filterPosts();
 
   return (
-    <div className="text-white">
-      {/* Desktop Layout (1024px and above) */}
-      <div className="hidden lg:grid lg:grid-cols-[auto_350px] p-2">
-        {/* Posts */}
-        <div className="h-screen">
-          <div className="border-b-2 border-gray-600 py-2 px-2">
+    <div className="h-screen">
+      {/* Large Screen Layout */}
+      <div className="hidden lg:grid lg:grid-cols-[250px_auto_350px] h-full">
+        {/* Posts Section */}
+        <div className="h-full overflow-y-auto border-r border-gray-600">
+          <div className="sticky top-0 bg-black z-10 p-4">
             <h1 className="text-lg font-bold">Home</h1>
-            <p className="text-gray-500 text-sm">Explore our products</p>
+            <p className="text-gray-400">Explore our products</p>
           </div>
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}
         </div>
+
         {/* Right Sidebar */}
-        <div className="border-l-2 px-6">
+        <div className="border-l border-gray-600 h-full bg-gray-100">
           <HomeRightSideBar />
         </div>
       </div>
 
-      {/* Tablet & Mobile Layout (1024px and below) */}
-      <div className="lg:hidden py-1 h-screen  w-screen md:w-full">
-        {/* Header Section */}
-        <div className="border-b-2 border-gray-600 py-2 px-2 sticky top-0 bg-black flex items-center justify-between mt-8">
-          {/* Home Title */}
+      {/* Mobile Layout */}
+      <div className="lg:hidden h-full flex flex-col">
+        {/* Header */}
+        <div className="sticky top-0 bg-black z-10 p-4 flex justify-between items-center border-b border-gray-600">
           <div>
             <h1 className="text-lg font-bold">Home</h1>
-            <p className="text-gray-500 text-sm">Explore our products</p>
+            <p className="text-gray-400">Explore our products</p>
           </div>
-
-          {/* Dropdown Toggle Button */}
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="text-white px-4 py-2 rounded-md flex items-center gap-2"
+            className="flex items-center gap-2 text-white"
           >
             Filter Feed
-            {isDropdownOpen ? (
-              <FiChevronUp size={20} />
-            ) : (
-              <FiChevronDown size={20} />
-            )}
+            {isDropdownOpen ? <FiChevronUp /> : <FiChevronDown />}
           </button>
         </div>
 
-        {/* Dropdown Content */}
+        {/* Dropdown Section */}
         {isDropdownOpen && (
-          <div className="transition-all duration-300 ease-in-out border-t-2 border-gray-600 bg-black">
+          <div className="bg-black border-t border-gray-600">
             <HomeRightSideBar />
           </div>
         )}
 
         {/* Posts Section */}
-        <div className="overflow-y-auto h-screen px-2">
+        <div className="flex-1 overflow-y-auto p-4">
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}
