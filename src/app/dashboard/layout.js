@@ -8,12 +8,10 @@ export default function DashboardLayout({ children }) {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Function to toggle sidebar open/close
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Handle resizing to determine if it's mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -24,40 +22,31 @@ export default function DashboardLayout({ children }) {
   }, []);
 
   return (
-    <>
-      {/* Layout for Desktop */}
+    <div className="min-h-screen bg-black">
       {!isMobile && (
         <div
-          className={`min-h-screen lg:fixed w-full bg-black grid ${
+          className={`min-h-screen grid ${
             isOpen ? "grid-cols-[250px_auto]" : "grid-cols-[80px_auto]"
-          } px-2 gap-3 overflow-hidden`}
+          }`}
         >
           <div className="border-r-2">
-            <Sidebar
-              isOpen={isOpen}
-              toggleSidebar={toggleSidebar}
-              isMobile={isMobile}
-            />
+            <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
           </div>
-          <ClientProvider>{children}</ClientProvider>
+          <div className="overflow-y-auto">
+            <ClientProvider>{children}</ClientProvider>
+          </div>
         </div>
       )}
-
-      {/* Mobile Sidebar */}
       {isMobile && (
-        <div className=" overflow-y-auto bg-black ">
-          <div className="z-40 fixed top-0">
-            <Sidebar
-              isOpen={isOpen}
-              toggleSidebar={toggleSidebar}
-              isMobile={isMobile}
-            />
+        <div className="bg-black relative">
+          <div className="z-40 absolute top-0">
+            <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
           </div>
-          <main>
+          <main className=" overflow-y-auto">
             <ClientProvider>{children}</ClientProvider>
           </main>
         </div>
       )}
-    </>
+    </div>
   );
 }

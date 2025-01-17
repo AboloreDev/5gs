@@ -43,7 +43,7 @@ const HomeContent = ({ post }) => {
     isPostVisible && (
       <div
         ref={contentRef}
-        className="flex flex-col gap-2 px-2 py-6 md:px-10 md:py-8 bg-black rounded-lg w-full h-auto overflow-y-auto"
+        className="flex flex-col gap-2 px-2 py-6 md:px-10 md:py-8 bg-black rounded-lg w-full overflow-y-auto"
       >
         {/* Post Author */}
         <h1 className="font-bold text-base md:text-lg flex items-center gap-2 tracking-wide">

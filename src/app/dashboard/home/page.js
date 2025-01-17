@@ -13,11 +13,11 @@ export default function HomePage() {
   const filteredPosts = filterPosts();
 
   return (
-    <div className="text-white  h-screen overflow-y-auto">
+    <div className="text-white">
       {/* Desktop Layout (1024px and above) */}
       <div className="hidden lg:grid lg:grid-cols-[auto_350px] p-2">
         {/* Posts */}
-        <div className="overflow-y-auto overflow-hidden h-[800px]">
+        <div className="h-screen">
           <div className="border-b-2 border-gray-600 py-2 px-2">
             <h1 className="text-lg font-bold">Home</h1>
             <p className="text-gray-500 text-sm">Explore our products</p>
@@ -33,7 +33,7 @@ export default function HomePage() {
       </div>
 
       {/* Tablet & Mobile Layout (1024px and below) */}
-      <div className="lg:hidden py-1 md:h-screen overflow-y-auto  w-screen md:w-full">
+      <div className="lg:hidden py-1 h-screen  w-screen md:w-full">
         {/* Header Section */}
         <div className="border-b-2 border-gray-600 py-2 px-2 sticky top-0 bg-black flex items-center justify-between mt-8">
           {/* Home Title */}
@@ -64,7 +64,7 @@ export default function HomePage() {
         )}
 
         {/* Posts Section */}
-        <div className="overflow-y-auto overflow-hidden h-[550px] px-2">
+        <div className="overflow-y-auto h-screen px-2">
           {filteredPosts.map((post, index) => (
             <HomeContent post={post} key={index} />
           ))}
