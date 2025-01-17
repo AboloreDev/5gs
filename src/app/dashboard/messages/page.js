@@ -13,7 +13,7 @@ const Meessages = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <div className="border-b-2 fixed top-0 bg-black w-full">
+      <div className="border-b-2 fixed top-0 bg-black w-full z-20">
         <div className="p-4">
           <h1 className="text-xl text-white sm:text-[20px] font-bold">
             Messages

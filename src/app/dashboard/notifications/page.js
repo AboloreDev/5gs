@@ -226,7 +226,7 @@ const Notification = () => {
       {/* Notification Modal (Small Screens) */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start lg:hidden">
-          <div className="bg-white w-[80%] h-[80%]  p-6 overflow-y-auto mt-40">
+          <div className="bg-white w-[80%] h-[80%]  p-6 overflow-y-auto">
             <div
               className="text-black flex justify-end items-end mb-20"
               onClick={closeNotification}

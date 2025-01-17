@@ -6,7 +6,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="h-screen bg-black flex">
       {/* Left */}
-      <div className="w-[10%] border-r-2 md:w-[8%] lg:w-[20%] xl:w-[14%] flex flex-col gap-14">
+      <div className="w-[10%] border-r-2 md:w-[8%] lg:w-[20%] xl:w-[14%] flex flex-col gap-14 fixed">
         {/* Logo */}
         <div className="w-60px md:w-100px p-2 flex justify-start md:justify-center">
           <Image src="/logo.png" alt="Logo" width={100} height={100} />
