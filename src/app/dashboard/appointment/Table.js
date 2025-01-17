@@ -27,8 +27,8 @@ export function Table({ data, onEdit, onCancel }) {
   };
 
   return (
-    <div className="overflow-x-auto w-full">
-      <table className="w-full text-left table-auto border-collapse text-sm sm:text-base">
+    <div className="overflow-x-auto w-full ">
+      <table className="w-full text-left table-auto border-collapse text-sm sm:text-base ">
         <thead className="bg-gray-100 text-gray-700">
           <tr>
             <th className="p-2 border">Appointment ID</th>

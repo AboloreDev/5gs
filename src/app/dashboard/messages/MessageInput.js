@@ -10,10 +10,10 @@ const MessageInput = () => {
   return (
     <form
       onSubmit={sendMessage}
-      className="p-4 flex rounded-lg bg-white items-center space-x-4 shadow-md"
+      className="p-2 flex rounded-lg bg-white items-center space-x-4 shadow-md"
     >
       <label className="text-gray-500 cursor-pointer">
-        <FaPaperclip size={24} />
+        <FaPaperclip size={20} />
         <input type="file" multiple className="hidden" onChange={uploadFile} />
       </label>
 
@@ -32,7 +32,7 @@ const MessageInput = () => {
 
       {/* Send Button */}
       <button className="text-gray-500 hover:text-orange-600" type="submit">
-        <AiOutlineSend size={24} />
+        <AiOutlineSend size={20} />
       </button>
     </form>
   );

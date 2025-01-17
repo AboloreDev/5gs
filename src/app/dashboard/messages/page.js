@@ -13,7 +13,7 @@ const Meessages = () => {
   return (
     <div className="p-4 flex gap-4 flex-col min-h-screen">
       {/* Header */}
-      <div className="border-b-2 ">
+      <div className="border-b-2 fixed top-0 bg-black w-full">
         <h1 className="text-xl text-white sm:text-[20px] font-bold">
           Messages
         </h1>
@@ -23,7 +23,7 @@ const Meessages = () => {
       </div>
 
       {/* Messages */}
-      <div className="w-full  bg-black overflow-y-auto max-h-[700px]">
+      <div className="w-full  bg-black overflow-y-auto h-[700px]">
         <div className="mt-10 overflow-y-auto p-2 space-y-4">
           {messages.length === 0 ? (
             <div className="flex justify-center items-center text-center text-gray-500">
@@ -66,8 +66,8 @@ const Meessages = () => {
       </div>
 
       {/* Centered Message Input */}
-      <div className="w-full bg-black text-black sticky bottom-5 p-4">
-        <div className="w-full">
+      <div className="w-full bg-black text-black fixed bottom-10 p-2">
+        <div className="w-2/3 mx-auto">
           <MessageInput />
         </div>
       </div>

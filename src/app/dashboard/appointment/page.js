@@ -16,9 +16,9 @@ const Appointment = () => {
       </div>
 
       {/* Sidebar Section */}
-      <div className=" lg:border-l-2 w-full flex flex-col items-center space-y-6 lg:w-[300px] text-black relative lg:sticky lg:top-0 lg:h-screen p-2 lg:p-4">
+      <div className="hidden lg:border-l-2 w-full  overflow-y-auto lg:flex flex-col items-center space-y-6 lg:w-[300px] text-black relative lg:sticky lg:top-0 lg:h-screen p-2 lg:p-4">
         {/* Map Section */}
-        <div className="flex flex-col border-2 rounded-xl space-y-4 p-4 mt-8 w-1/2 lg:w-full h-[250px] text-white">
+        <div className="flex flex-col border-2 rounded-xl space-y-4 p-4 mt-8 w-full h-[250px] text-white">
           <div className="text-sm mt-4">
             <h3>Want to locate us?</h3>
             <p className="text-[10px] mt-1">
@@ -40,7 +40,7 @@ const Appointment = () => {
         </div>
 
         {/* Notice Board Section */}
-        <div className="flex flex-col w-1/2 lg:w-full space-y-4 bg-gradient-to-r from-[#FF3D00] text-white via-[#0369F0] to-[#FFFFFF80] border-2 rounded-lg px-4 py-2">
+        <div className="flex flex-col w-full space-y-6 bg-gradient-to-r from-[#FF3D00] text-white via-[#0369F0] to-[#FFFFFF80] border-2 rounded-lg px-4 py-2">
           <h3 className="text-sm">
             <span></span> Important Notice
           </h3>

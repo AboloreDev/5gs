@@ -59,7 +59,7 @@ const Rent = () => {
 
         {/* Sidebar Section (cart list) - for mobile */}
         <div
-          className={`transition-transform duration-300 ease-in-out transform fixed inset-y-0 right-0 bg-black bg-opacity-70 z-50 w-1/2 ${
+          className={`transition-transform duration-300 ease-in-out transform fixed inset-y-0 right-0 bg-black bg-opacity-70 z-50 w-full md:w-2/3 ${
             sidebarOpen ? "translate-x-0" : "translate-x-full"
           } lg:translate-x-0 lg:static lg:w-auto`}
         >

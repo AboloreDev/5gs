@@ -32,13 +32,13 @@ const AppointmentTable = () => {
   );
 
   return (
-    <div className="px-4 py-2 text-black w-full">
+    <div className="px-4 py-2 text-black w-full ">
       {appointments.length === 0 ? (
         <p className="flex text-gray-500 justify-center items-center">
           Please create an appointment to continue
         </p>
       ) : (
-        <div className="bg-white">
+        <div className="bg-white rounded-xl">
           <div className="">
             <SearchAppointment onSearch={handleSearch} />
           </div>
