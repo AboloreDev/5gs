@@ -80,7 +80,7 @@ const Notification = () => {
                   unreadNotifications.map((notif, index) => (
                     <div
                       key={index}
-                      className="flex flex-row-reverse px-2 py-2 items-center justify-between gap-5 rounded-lg shadow-md cursor-pointer w-[500px]"
+                      className="flex flex-row-reverse px-2 py-2  text-gray-600 items-center justify-between gap-5 rounded-lg shadow-md cursor-pointer w-[500px]"
                       onClick={() => openNotification(notif)}
                     >
                       <div className="gap-2 w-[600px]">
@@ -226,7 +226,7 @@ const Notification = () => {
       {/* Notification Modal (Small Screens) */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start lg:hidden">
-          <div className="bg-white w-1/2 h-1/2  p-6 overflow-y-auto mt-40">
+          <div className="bg-white w-[80%] h-[80%]  p-6 overflow-y-auto mt-40">
             <div
               className="text-black flex justify-end items-end mb-20"
               onClick={closeNotification}
