@@ -13,56 +13,49 @@ export default function HomePage() {
   const filteredPosts = filterPosts();
 
   return (
-    <div className="h-screen">
+    <div className="p-4 flex gap-4 flex-col md:flex-row min-h-screen">
       {/* Large Screen Layout */}
-      <div className="hidden lg:grid lg:grid-cols-[250px_auto_350px] h-full">
-        {/* Posts Section */}
-        <div className="h-full overflow-y-auto border-r border-gray-600">
-          <div className="sticky top-0 bg-black z-10 p-4">
-            <h1 className="text-lg font-bold">Home</h1>
-            <p className="text-gray-400">Explore our products</p>
-          </div>
-          {filteredPosts.map((post, index) => (
-            <HomeContent post={post} key={index} />
-          ))}
+      <div className="hidden lg:block lg:w-2/3 bg-black overflow-y-auto max-h-screen">
+        <div className="text-white p-4 border-b-2 border-gray-600">
+          <h1 className="text-lg font-bold">Home</h1>
+          <p className="text-gray-400">Explore our products</p>
         </div>
-
-        {/* Right Sidebar */}
-        <div className="border-l border-gray-600 h-full bg-gray-100">
-          <HomeRightSideBar />
-        </div>
+        {filteredPosts.map((post, index) => (
+          <HomeContent post={post} key={index} />
+        ))}
       </div>
 
-      {/* Mobile Layout */}
-      <div className="lg:hidden h-full flex flex-col">
-        {/* Header */}
-        <div className="sticky top-0 bg-black z-10 p-4 flex justify-between items-center border-b border-gray-600">
-          <div>
+      <div className="hidden lg:block lg:w-1/3 md:w-[45%] md:p-2 bg-black text-white relative border-l-2 lg:sticky lg:top-0 lg:h-screen p-4">
+        <HomeRightSideBar />
+      </div>
+
+      {/* Dropdown Section */}
+      {isDropdownOpen && (
+        <div className="bg-black text-white ">
+          <HomeRightSideBar />
+        </div>
+      )}
+
+      {/* Posts Section */}
+      <div className="block w-full lg:hidden bg-black overflow-y-auto max-h-screen">
+        <div className="flex justify-between items-center border-b-2 border-gray-600">
+          <div className="text-white">
             <h1 className="text-lg font-bold">Home</h1>
             <p className="text-gray-400">Explore our products</p>
           </div>
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center gap-2 text-white"
-          >
-            Filter Feed
-            {isDropdownOpen ? <FiChevronUp /> : <FiChevronDown />}
-          </button>
-        </div>
-
-        {/* Dropdown Section */}
-        {isDropdownOpen && (
-          <div className="bg-black border-t border-gray-600">
-            <HomeRightSideBar />
+          <div className="text-white">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center gap-2 text-white"
+            >
+              Filter Feed
+              {isDropdownOpen ? <FiChevronUp /> : <FiChevronDown />}
+            </button>
           </div>
-        )}
-
-        {/* Posts Section */}
-        <div className="flex-1 overflow-y-auto p-4">
-          {filteredPosts.map((post, index) => (
-            <HomeContent post={post} key={index} />
-          ))}
         </div>
+        {filteredPosts.map((post, index) => (
+          <HomeContent post={post} key={index} />
+        ))}
       </div>
     </div>
   );

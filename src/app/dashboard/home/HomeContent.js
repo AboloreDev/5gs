@@ -13,9 +13,6 @@ const HomeContent = ({ post }) => {
   const { toggleLike, filters, setFilters } = useContext(ClientContext);
   const [isClient, setIsClient] = useState(false);
 
-  // Reference to scrollable container
-  const contentRef = useRef(null);
-
   // Handle default filter logic
   useEffect(() => {
     setIsClient(true);
@@ -24,16 +21,6 @@ const HomeContent = ({ post }) => {
     }
   }, [setFilters, filters.category]);
 
-  // Scroll to the bottom when the component is rendered
-  useEffect(() => {
-    if (window.innerWidth < 1024) {
-      // Scroll to the bottom of the content container
-      if (contentRef.current) {
-        contentRef.current.scrollTop = contentRef.current.scrollHeight;
-      }
-    }
-  }, [post]); // Runs whenever new posts are added/filtered
-
   const isPostVisible =
     filters.type.includes("All") || filters.type.includes(post.type);
 
@@ -41,10 +28,7 @@ const HomeContent = ({ post }) => {
 
   return (
     isPostVisible && (
-      <div
-        ref={contentRef}
-        className="flex flex-col gap-2 px-2 py-6 md:px-10 md:py-8 bg-black rounded-lg w-full overflow-y-auto"
-      >
+      <div className="p-4 w-full flex flex-col gap-2 text-white">
         {/* Post Author */}
         <h1 className="font-bold text-base md:text-lg flex items-center gap-2 tracking-wide">
           5GS Admin{" "}
