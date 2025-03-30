@@ -13,10 +13,15 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import axiosInstance from "../../../../utils/axiosInstance";
+import { API_PATHS } from "../../../../utils/store";
+import { toast, ToastContainer } from "react-toastify";
+import { Loader } from "lucide-react";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const formik = useFormik({
@@ -43,14 +48,47 @@ const SignUpPage = () => {
         "You must accept the terms and conditions"
       ),
     }),
-    onSubmit: (values) => {
-      console.log("Form submitted:", values);
-      router.push("/dashboard"); // Navigate to dashboard
+
+    onSubmit: async (values) => {
+      setIsLoading(true);
+
+      try {
+        const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+          name: values.name,
+          email: values.email,
+          password: values.password,
+        });
+
+        if (!values.name) {
+          toast.error("Name is required");
+        }
+
+        if (!values.email) {
+          toast.error("Email is required");
+        }
+
+        if (!values.password) {
+          toast.error("Password is required");
+        }
+
+        if (response.data.success) {
+          setIsLoading(true);
+          toast.success("Registration Successful");
+          router.push("/auth/SignIn");
+        } else {
+          toast.error(response.data.message);
+        }
+      } catch (error) {
+        toast.error(error.response.data.message);
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
 
   return (
     <div className="sticky bg-bgImage bg-no-repeat bg-cover bg-center">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
       <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%, to-[#99999933] 20% justify-center items-start px-6 py-2 space-y-2 w-[350px] sm:w-[500px] h-[600px] sm:h-[700px] backdrop-blur-sm text-xl font-thin text-white rounded-xl">
           <h2 className="text-xl font-semibold text-center mb-4">Register</h2>
@@ -204,7 +242,14 @@ const SignUpPage = () => {
               type="submit"
               className="bg-orange-600 text-sm text-white font-thin py-2 rounded-lg hover:scale-105 transition-transform w-full tracking-wide"
             >
-              Register
+              {isLoading ? (
+                <div className="flex items-center justify-center">
+                  <Loader className="w-6 h-6 animate-spin mx-2" />
+                  Loading.....
+                </div>
+              ) : (
+                "Register"
+              )}
             </button>
 
             {/* Continue with Google */}

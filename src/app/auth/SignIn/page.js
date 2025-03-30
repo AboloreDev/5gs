@@ -10,6 +10,9 @@ import EmailVerification from "@/app/components/EmailVerification";
 import CreateNewPasswordModal from "@/app/components/NewPassword";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { ToastContainer } from "react-toastify";
+import { API_PATHS } from "../../../../utils/store";
+import axiosInstance from "../../../../utils/axiosInstance";
 
 const signInSchema = yup.object().shape({
   email: yup
@@ -26,6 +29,7 @@ export default function Page() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [showEmailVerification, setShowEmailVerification] = useState(false);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
   const formik = useFormik({
@@ -35,13 +39,26 @@ export default function Page() {
       keepSignedIn: false,
     },
     validationSchema: signInSchema,
-    onSubmit: (values) => {
-      console.log("Sign-In Data:", values);
-      // Handle sign-in logic here (e.g., API calls).
-      if (values.keepSignedIn) {
-        console.log("User will stay signed in.");
-      } else {
-        console.log("User will not stay signed in.");
+
+    onSubmit: async (values) => {
+      setIsLoading(true);
+      try {
+        const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+          email: values.email,
+          password: values.password,
+          rememberMe: values.keepSignedIn,
+        });
+
+        if (response.data.success) {
+          toast.success("Login successful!");
+          router.push("/dashboard");
+        } else {
+          toast.error(response.data.message);
+        }
+      } catch (error) {
+        toast.error("Error during login:", error.response.data.message);
+      } finally {
+        setIsLoading(false);
       }
 
       router.push("/dashboard");
@@ -60,6 +77,7 @@ export default function Page() {
 
   return (
     <div className=" bg-bgImage bg-no-repeat bg-cover sticky">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
       <div className="flex justify-center items-center h-screen ">
         <form
           className="flex flex-col space-y-12 w-[300px] md:w-[500px]  px-4 py-2 h-auto  mx-auto bg-gradient-to-r from-[#FFFFFF80] 50%,  to-[#99999933] 20% rounded-lg shadow-lg bg-opacity-10 text-white font-thin backdrop-blur-sm text-xl"
